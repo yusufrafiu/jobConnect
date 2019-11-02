@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<head>
+  <title>job Connect</title>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css"><!-- favicon-->
+  <link rel="shortcut icon" href="http://talentsandskills.net/favicon.ico">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/main.css">
+</head>
+
+<body>
+  <div class="white-bg">
+    <div class="container">
+      <div class="navbar navbar-default navbar-right navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header"><a class="pull-left logo block" href="/"></a><button class="navbar-toggle"
+              type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span
+                class="icon-bar"></span><span class="icon-bar"></span></button></div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="current" href="/employer/dashboard">dashboard </a></li>
+              <li><a href="/employer/jobs/create">post a job </a></li>
+              <li><a href="/employer/profile">profile </a></li>
+              <li><a href="">subscription </a></li>
+              <li><a href="/logout">logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- main content-->
+  <div class="inner-top dashboard">
+    <div class="p-heavy-breather">
+      <div class="container">
+        <div class="row">
+          <!-- sidebar-->
+          <div class="sidebar col-sm-4">
+            <div class="light-bx-shadow m-mid-bottom-breather">
+              <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                <p class="headfont uppercase no-margin text-center">company profile</p>
+              </div>
+              <div class="p-mid-side-breather p-light-breather"><img class="img-center img-responsive"
+                  src="//www.gravatar.com/avatar/15aeb1d18784b26ce01be7dcbe6a8089?s=400&amp;r=pg&amp;d=mp" alt="" />
+                <p class="lead headfont m-light-top-breather no-margin">Tech Studio Academy</p>
+                <p class="secheadfont capitalize">software development</p>
+              </div>
+            </div>
+            <div class="light-bx-shadow m-mid-bottom-breather">
+              <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                <p class="headfont uppercase no-margin text-center">create a job posting</p>
+              </div>
+              <div class="p-mid-side-breather p-light-breather">
+                <form method="post" action="/employer/jobs/start-creating">
+                  <div class="form-group"><label class="capitalize">job title</label><input class="form-control"
+                      type="text" name="title" placeholder="Enter Your Job Title" /></div>
+                  <div class="form-group"><label class="capitalize">field</label><select class="form-control"
+                      name="field">
+                      <option value="accountancy">accountancy</option>
+                      <option value="administration / management">administration / management</option>
+                      <option value="agriculture / farming">agriculture / farming</option>
+                      <option value="banking / finance / insurance">banking / finance / insurance</option>
+                      <option value="building / design / architecture">building / design / architecture</option>
+                      <option value="business development">business development</option>
+                      <option value="business strategy / planning">business strategy / planning</option>
+                      <option value="charity / voluntary">charity / voluntary</option>
+                      <option value="construction / contract - management">construction / contract - management</option>
+                      <option value="consulting / business strategy and planning">consulting / business strategy and
+                        planning</option>
+                      <option value="creatives / arts / design / fashion">creatives / arts / design / fashion</option>
+                      <option value="customer service">customer service</option>
+                      <option value="digital and creative">digital and creative</option>
+                      <option value="education / teaching / training">education / teaching / training</option>
+                      <option value="engineering">engineering</option>
+                      <option value="estate agency">estate agency</option>
+                      <option value="executive / top management">executive / top management</option>
+                      <option value="graduate">graduate</option>
+                      <option value="healthcare / pharmaceutical">healthcare / pharmaceutical</option>
+                      <option value="hospitality / leisure / travels">hospitality / leisure / travels</option>
+                      <option value="human resources">human resources</option>
+                      <option value="information technology">information technology</option>
+                      <option value="IT contractor">IT contractor</option>
+                      <option value="law / legal">law / legal</option>
+                      <option value="legal jobs">legal jobs</option>
+                      <option value="leisure and tourism jobs">leisure and tourism jobs</option>
+                      <option value="manufacturing / production">manufacturing / production</option>
+                      <option value="marketing / advertising / communications">marketing / advertising / communications
+                      </option>
+                      <option value="Marketing and PR">Marketing and PR</option>
+                      <option value="Media">Media</option>
+                      <option value="Motoring andcAutomotive">Motoring andcAutomotive</option>
+                      <option value="NGO Community Services and Development">NGO Community Services and Development
+                      </option>
+                      <option value="oil gas / mining energy">oil gas / mining energy</option>
+                      <option value="project / programme management">project / programme management</option>
+                      <option value="public sector">public sector</option>
+                      <option value="purchase ledger clerk">purchase ledger clerk</option>
+                      <option value="purchasing">purchasing</option>
+                      <option value="QA &amp; amp; QC / HSE">QA &amp; amp; QC / HSE</option>
+                      <option value="real estate / property">real estate / property</option>
+                      <option value="retail">retail</option>
+                      <option value="sales and marketing">sales and marketing</option>
+                      <option value="sales / business development">sales / business development</option>
+                      <option value="supply chain / procurement">supply chain / procurement</option>
+                      <option value="telecommunications">telecommunications</option>
+                      <option value="transportation">transportation</option>
+                      <option value="vocational trade and services">vocational trade and services</option>
+                      <option value="web designing / graphic design">web designing / graphic design</option>
+                      <option value="software development">software development</option>
+                      <option value="Information Technology">Information Technology</option>
+                    </select></div><input class="btn sec-btn heavy-font-size form-control" type="submit"
+                    value="Start" />
+                </form>
+              </div>
+            </div>
+          </div><!-- mainbar-->
+          <div class="col-sm-8 mainbar">
+            <div class="jobs m-mid-bottom-breather">
+              <!-- job posted-->
+              <div class="light-bx-shadow">
+                <div class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather">
+                  <p class="headfont uppercase no-margin">your job postings</p>
+                </div>
+                <div class="p-light-bottom-breather p-mid-side-breather">
+                  <div class="table-responsive"></div>
+                  <table>
+                    <tbody>
+                      <tr class="capitalize">
+                        <td>S/N</td>
+                        <td>job title</td>
+                        <td>applications</td>
+                        <td>current status</td>
+                        <td>action</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td class="capitalize"><a href="jobs/5db7067f789a5d2a705d599d">the best of python2</a></td>
+                        <td>0</td>
+                        <td class="capitalize">expired</td>
+                        <td class="small-font-size"><a href="jobs/edit/5db7067f789a5d2a705d599d">Edit</a><br><a
+                            href="jobs/delete/5db7067f789a5d2a705d599d">Delete</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div><!-- orders-->
+              <div class="orders m-mid-bottom-breather m-mid-top-breather">
+                <div class="light-bx-shadow">
+                  <div class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather">
+                    <p class="headfont uppercase no-margin">my subscription</p>
+                  </div>
+                  <div class="p-light-bottom-breather p-mid-side-breather">
+                    <p>You have not yet subscribed to any package. <a href="">Click here to subscribe</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- footer-->
+  <footer class="white-bg m-heavy-top-breather p-heavy-breather" id="footer">
+    <div>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="footer-bx nwslttr">
+                <h4 class="hdln">Newsletter</h4>
+                <div>
+                  <p>Subscribe to jobConnect newsletter to be the first to know about current recruitment solution,
+                    Latest articles, Jobs / Vacancies updates.</p>
+                  <form class="m-light-top-breather" action="" method="post">
+                    <div class="form-group"><input class="form-control" type="text" name="email"
+                        placeholder="Enter Your Email Address"></div>
+                    <div class="form-group"><input class="btn main-btn form-control" type="submit" name="submit"
+                        value="Submit"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Important Pages</h4>
+                <ul class="no-left-padding">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Recruiting Services</a></li>
+                  <li><a href="#">Resume Access Packages</a></li>
+                  <li><a href="#">Terms and Conditions</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="/register/">Register</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Contact Us</h4>
+                <div>
+                  <address><span>Our Address <br><b>jobConnect.</b><br>3, Ogunlesi Street, Off Awoyokun,
+                      Onipanu, Lagos<br>+234 7037555895,<br> info@jobConnect.com</span></address>
+                  <div id="social">
+                    <ul class="social-links clearfix">
+                      <li class="facebook"><a href="#" title="Facebook" target="_blank"><i
+                            class="fa fa-facebook"></i></a></li>
+                      <li class="googleplus"><a href="#" title="Google+" target="_blank"><i
+                            class="fa fa-google-plus"></i></a></li>
+                      <li class="twitter"><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li class="youtube"><a href="#" title="YouTube" target="_blank"><i class="fa fa-youtube"></i></a>
+                      </li>
+                      <li class="linkedin"><a href="#" title="LinkedIN" target="_blank"><i
+                            class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="javascripts/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascripts/project.js"></script>
+  <script type="text/javascript" src="javascripts/settings.js"></script>
+</body>

@@ -1,0 +1,298 @@
+<head>
+  <title>jobConnect | Welcome</title>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+  <!-- favicon-->
+  <link rel="shortcut icon" href="http://talentsandskills.net/favicon.ico" />
+  <link
+    href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0stylesheets/font-awesome.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="stylesheets/main.css" />
+  <link rel="stylesheet" href="stylesheets/pricing-table.css" />
+  <link rel="stylesheet" href="stylesheets/jobs.css" />
+  <link rel="stylesheet" href="stylesheets/404.min.css" />
+</head>
+
+<body>
+  <!-- navbar-->
+  <div class="white-bg">
+    <div class="container">
+      <div class="navbar navbar-default navbar-right navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="pull-left logo block" href="/"></a
+            ><button
+              class="navbar-toggle"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+            >
+              Menu<i class="fa fa-bars"></i>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <!-- interns-->
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="" data-toggle="dropdown"
+                  >interns <i class="caret"></i
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/register/intern">register</a></li>
+                  <li><a href="/login">login</a></li>
+                </ul>
+              </li>
+              <!-- candidates-->
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="" data-toggle="dropdown"
+                  >candidates <i class="caret"></i
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/register/candidate">register</a></li>
+                  <li><a href="">View jobs</a></li>
+                  <li><a href="#">Career Tips</a></li>
+                </ul>
+              </li>
+              <!-- employers-->
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="" data-toggle="dropdown"
+                  >employers <i class="caret"></i
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/register/employer">register</a></li>
+                  <li><a href="#">Resume access packages</a></li>
+                  <li><a href="#">request for interns</a></li>
+                </ul>
+              </li>
+              <!-- login-->
+              <li><a href="/login"> log in </a></li>
+              <!-- signup-->
+              <li><a class="last" href="/register"> sign up </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end .navbar-->
+  <div class="container inner-top p-heavy-top-breather registration">
+    <div class="row">
+      <!-- signup with social network-->
+      <div class="col-sm-6 rgstrtn-col">
+        <div
+          class="heavy-container light-bx-shadow p-light-breather p-mid-side-breather sm-br"
+        >
+          <p class="text-center capitalize headfont">
+            Sign up / Login with a social network
+          </p>
+          <div class="m-light-breather mid-container">
+            <!-- LinkedIN-->
+            <div class="m-light-bottom-breather">
+              <a class="rgstrtn-social lnkdin" href="">LinkedIN</a>
+            </div>
+            <!-- Facebook-->
+            <div class="m-light-bottom-breather">
+              <a class="rgstrtn-social fb" href="">Facebook</a>
+            </div>
+            <!-- Twitter-->
+            <div class="m-light-bottom-breather">
+              <a class="rgstrtn-social twt" href="">Twitter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- signup with email address-->
+      <div class="col-sm-6 rgstrtn-col">
+        <div
+          class="heavy-container light-bx-shadow p-light-breather p-mid-side-breather sm-br"
+        >
+          <p class="text-center capitalize headfont">
+            Sign up with your email address
+          </p>
+          <div class="m-light-breather mid-container">
+            <form action="/register" method="post">
+              <div class="form-group">
+                <label class="sr-only" for="name">Select One</label
+                ><select class="form-control" id="accountType" name="account">
+                  <option>Choose your account type</option>
+                  <option value="candidate">Candidate</option>
+                  <option value="intern">Intern</option>
+                  <option value="employer">Employer</option>
+                </select>
+              </div>
+              <div class="form-group" id="userName">
+                <label class="sr-only" for="name">Enter Your First Name</label
+                ><input
+                  class="form-control"
+                  placeholder="Enter Your First Name"
+                  name="firstname"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="email">Enter Your Email</label
+                ><input
+                  class="form-control"
+                  placeholder="Enter Your email"
+                  name="email"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <input
+                class="btn capitalize main-btn form-control"
+                type="submit"
+                name="submit"
+                value="Register"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const accountType = document.getElementById("accountType"),
+      userName = document.getElementById("userName"),
+      form = document.querySelector("form");
+
+    let employerHTML = `<label for="name" class="sr-only">Enter Your Company's Name</label>`;
+    employerHTML += `<input class="form-control" placeholder="Enter Your Company's Name" name="company" type="text" value="">`;
+    let otherHTML = `<label for="name" class="sr-only">Enter Your First Name</label>`;
+    otherHTML += `<input class="form-control" placeholder="Enter Your First Name" name="firstname" type="text" value="">`;
+
+    accountType.onchange = e => {
+      if (e.target.value == "employer") {
+        userName.innerHTML = employerHTML;
+      } else if (e.target.value == "intern" || e.target.value == "candidate") {
+        userName.innerHTML = otherHTML;
+      }
+    };</script
+  ><!-- footer-->
+  <footer class="white-bg m-heavy-top-breather p-heavy-breather" id="footer">
+    <div>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="footer-bx nwslttr">
+                <h4 class="hdln">Newsletter</h4>
+                <div>
+                  <p>
+                    Subscribe to jobConnect newsletter to be the first to know
+                    about current recruitment solution, Latest articles, Jobs /
+                    Vacancies updates.
+                  </p>
+                  <form class="m-light-top-breather" action="" method="post">
+                    <div class="form-group">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="email"
+                        placeholder="Enter Your Email Address"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        class="btn main-btn form-control"
+                        type="submit"
+                        name="submit"
+                        value="Submit"
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Important Pages</h4>
+                <ul class="no-left-padding">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Recruiting Services</a></li>
+                  <li><a href="#">Resume Access Packages</a></li>
+                  <li><a href="#">Terms and Conditions</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="/register/">Register</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Contact Us</h4>
+                <div>
+                  <address>
+                    <span
+                      >Our Address <br /><b>jobConnect.</b><br />3, Ogunlesi
+                      Street, Off Awoyokun, Onipanu, Lagos<br />+234
+                      7037555895,<br />
+                      info@jobConnect.com</span
+                    >
+                  </address>
+                  <div id="social">
+                    <ul class="social-links clearfix">
+                      <li class="facebook">
+                        <a href="#" title="Facebook" target="_blank"
+                          ><i class="fa fa-facebook"></i
+                        ></a>
+                      </li>
+                      <li class="googleplus">
+                        <a href="#" title="Google+" target="_blank"
+                          ><i class="fa fa-google-plus"></i
+                        ></a>
+                      </li>
+                      <li class="twitter">
+                        <a href="#" title="Twitter" target="_blank"
+                          ><i class="fa fa-twitter"></i
+                        ></a>
+                      </li>
+                      <li class="youtube">
+                        <a href="#" title="YouTube" target="_blank"
+                          ><i class="fa fa-youtube"></i
+                        ></a>
+                      </li>
+                      <li class="linkedin">
+                        <a href="#" title="LinkedIN" target="_blank"
+                          ><i class="fa fa-linkedin"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script
+    type="text/javascript"
+    src="javascripts/jquery-1.11.2.min.js"
+  ></script>
+  <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascripts/project.js"></script>
+  <script type="text/javascript" src="javascripts/profile.js"></script>
+  <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+  <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $(function() {
+      $("#datepicker").datepicker({
+        minDate: 0
+      });
+    });
+  </script>
+  <!--<script type="text/javascript">
+CKEDITOR.instances.editor1.insertHTML(jobDescription);
+</script>-->
+  <script type="text/javascript" src="javascripts/settings.js"></script>
+</body>

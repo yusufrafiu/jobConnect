@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<head>
+  <title>job Connect</title>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css"><!-- favicon-->
+  <link rel="shortcut icon" href="http://talentsandskills.net/favicon.ico">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/main.css">
+</head>
+
+<body>
+  <div class="white-bg">
+    <div class="container">
+      <div class="navbar navbar-default navbar-right navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header"><a class="pull-left logo block" href="/"></a><button class="navbar-toggle"
+              type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span
+                class="icon-bar"></span><span class="icon-bar"></span></button></div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="current" href="/candidate/dashboard">dashboard </a></li>
+              <li><a href="/candidate/profile">my profile </a></li>
+              <li><a href=""> search jobs </a></li>
+              <li><a href="/candidate/settings">settings </a></li>
+              <li><a href="/logout"> logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- main content-->
+  <div class="inner-top dashboard">
+    <div class="p-heavy-breather">
+      <div class="container">
+        <div class="row">
+          <!-- sidebar-->
+          <div class="sidebar col-sm-4">
+            <div class="light-bx-shadow m-mid-bottom-breather">
+              <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                <p class="headfont uppercase no-margin text-center">about me</p>
+              </div>
+              <div class="p-mid-side-breather p-light-breather">
+                <div class="row m-mid-bottom-breather">
+                  <div class="col-sm-4 bioimage"><img class="img-center img-circle img-responsive"
+                      src="//www.gravatar.com/avatar/f4a6d23c57cf7890412ea4e922515291?s=400&amp;r=pg&amp;d=mp" /></div>
+                  <div class="col-sm-8 bio-details">
+                    <p class="headfont lead no-margin"></p>
+                    <p class="mid-font-size">manuelocal@gmail.com</p>
+                    <p class="mid-font-size no-margin"><span class="txt-bold">Mobile:</span> 2347037555894</p>
+                    <p class="mid-font-size"><span class="txt-bold">D.O.B: </span> 20/08/1923</p>
+                  </div>
+                </div><!-- progress-bar-->
+                <p class="no-margin small-font-size secheadfont capitalize">profile strength: 100%</p><progress
+                  class="m-vlight-bottom-breather" max="100" value="100">
+                  <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element.-->
+                  <!-- Whereas older browsers will ignore the `progress` element and instead render the html inside it.-->
+                  <div class="progress-bar"><span style="width: 100; height: inherit;"></span></div>
+                </progress><!-- end .progress-bar-->
+                <!-- sidebar form-->
+                <div class="light-bx-shadow m-mid-bottom-breather">
+                  <div class="light-bx-shadow m-mid-bottom-breather">
+                    <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                      <p class="headfont uppercase no-margin text-center">browse jobs</p>
+                    </div>
+                    <div class="p-mid-side-breather p-light-breather">
+                      <form method="get" action="">
+                        <div class="form-group"><input class="form-control" type="text" name="keyword"
+                            placeholder="job title, skills or                  company" /></div>
+                        <div class="form-group"><select class="form-control" name="location">
+                            <option>location</option>
+                            <option value="lagos">lagos</option>
+                            <option value="abuja">abuja</option>
+                          </select></div>
+                        <div class="form-group"><input class="form-control btn sec-btn uppercase" type="submit"
+                            value="find jobs" /></div>
+                      </form>
+                    </div>
+                  </div>
+                </div><!-- // shortlisted jobs /*-->
+                <div class="light-bx-shadow m-mid-bottom-breather">
+                  <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                    <p class="headfont uppercase no-margin text-center">shortlisted jobs</p>
+                  </div>
+                  <div class="p-mid-side-breather p-light-breather">
+                    <p>You haven&apos;t shortlisted any jobs</p>
+                  </div>
+                </div><!-- */ // applied jobs-->
+                <div class="light-bx-shadow m-mid-bottom-breather">
+                  <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                    <p class="headfont uppercase no-margin text-center">applied jobs</p>
+                  </div>
+                  <div class="p-mid-side-breather p-light-breather">
+                    <p>You haven&apos;t applied for any job</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- mainbar-->
+          <div class="col-sm-8 mainbar">
+            <!-- flash message-->
+            <div class="m-mid-bottom-breather">
+              <div class="light-bx-shadow">
+                <div class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather">
+                  <p class="headfont uppercase no-margin">upload your resume / cv here</p>
+                </div>
+                <div class="p-light-bottom-breather p-mid-side-breather">
+                  <!-- cv form-->
+                  <!-- flash errors-->
+                  <form method="post" action="/candidate/upload/cv" enctype="multipart/form-data">
+                    <div class="m-light-bottom-breather">
+                      <ul class="no-list-style no-left-padding">
+                        <li>The file size must not be more than<span class="txt-bold">500KB</span></li>
+                        <li>File format must be any of these:<span class="txt-bold">.pdf, .docx, .doc </span></li>
+                      </ul>
+                    </div><input type="hidden" name="MAX_FILE_SIZE" value="500000">
+                    <div class="form-group"><input type="file" name="cv" style="padding-left: 0;"></div><input
+                      class="btn uppercase m-vlight-top-breather sec-btn mid-font-size" type="submit" name="submit"
+                      value="upload cv / resume">
+                  </form>
+                </div>
+              </div>
+            </div><!-- if there are new jobs-->
+            <div class="jobs m-mid-bottom-breather">
+              <div class="light-bx-shadow">
+                <div class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather">
+                  <p class="headfont uppercase no-margin">recent jobs on talents and skills </p>
+                </div>
+                <div class="p-light-bottom-breather p-mid-side-breather">
+                  <ul class="no-list-style no-left-padding">
+                    <li><a href=""> Accounting</a></li>
+                  </ul><!-- pagination buttons-->
+                </div>
+              </div>
+            </div><!-- end .new jobs-->
+            <div class="blog m-mid-top-breather">
+              <div class="light-bx-shadow">
+                <div class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather">
+                  <p class="headfont uppercase no-margin">profile settings</p>
+                </div>
+                <div class="p-light-bottom-breather p-mid-side-breather">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div>
+                        <p class="mid-font-size capitalize no-margin txt-bold">Email</p>
+                        <p class="small-font-size">manuelocal@gmail.com</p>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div>
+                        <p class="mid-font-size capitalize no-margin txt-bold">Phone Number</p>
+                        <p class="small-font-size">2347037555894</p>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div>
+                        <p class="mid-font-size capitalize no-margin txt-bold">Date of Birth</p>
+                        <p class="small-font-size">19/03/1202</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-light-top-breather">
+                    <div class="col-sm-4">
+                      <div>
+                        <p class="mid-font-size capitalize no-margin txt-bold">Gender</p>
+                        <p class="small-font-size">male</p>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div>
+                        <p class="mid-font-size capitalize no-margin txt-bold">Location</p>
+                        <p class="small-font-size"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix m-mid-top-breather sm-container"><a class="btn sec-btn capitalize form-control"
+                      href="/candidate/profile">update your profile</a></div>
+                </div>
+              </div>
+            </div><!-- end .featured-jobs-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- footer-->
+  <footer class="white-bg m-heavy-top-breather p-heavy-breather" id="footer">
+    <div>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="footer-bx nwslttr">
+                <h4 class="hdln">Newsletter</h4>
+                <div>
+                  <p>Subscribe to jobConnect newsletter to be the first to know about current recruitment solution,
+                    Latest articles, Jobs / Vacancies updates.</p>
+                  <form class="m-light-top-breather" action="" method="post">
+                    <div class="form-group"><input class="form-control" type="text" name="email"
+                        placeholder="Enter Your Email Address"></div>
+                    <div class="form-group"><input class="btn main-btn form-control" type="submit" name="submit"
+                        value="Submit"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Important Pages</h4>
+                <ul class="no-left-padding">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Recruiting Services</a></li>
+                  <li><a href="#">Resume Access Packages</a></li>
+                  <li><a href="#">Terms and Conditions</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="/register/">Register</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Contact Us</h4>
+                <div>
+                  <address><span>Our Address <br><b>jobConnect.</b><br>3, Ogunlesi Street, Off Awoyokun,
+                      Onipanu, Lagos<br>+234 7037555895,<br> info@jobConnect.com</span></address>
+                  <div id="social">
+                    <ul class="social-links clearfix">
+                      <li class="facebook"><a href="#" title="Facebook" target="_blank"><i
+                            class="fa fa-facebook"></i></a></li>
+                      <li class="googleplus"><a href="#" title="Google+" target="_blank"><i
+                            class="fa fa-google-plus"></i></a></li>
+                      <li class="twitter"><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li class="youtube"><a href="#" title="YouTube" target="_blank"><i class="fa fa-youtube"></i></a>
+                      </li>
+                      <li class="linkedin"><a href="#" title="LinkedIN" target="_blank"><i
+                            class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="javascripts/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascripts/project.js"></script>
+  <script type="text/javascript" src="javascripts/settings.js"></script>
+</body>

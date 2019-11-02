@@ -1,0 +1,228 @@
+<head>
+  <title>jobConnect | Welcome</title>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css" /><!-- favicon-->
+  <link rel="shortcut icon" href="http://talentsandskills.net/favicon.ico" />
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0stylesheets/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="stylesheets/main.css" />
+  <link rel="stylesheet" href="stylesheets/pricing-table.css" />
+  <link rel="stylesheet" href="stylesheets/jobs.css" />
+  <link rel="stylesheet" href="stylesheets/404.min.css" />
+</head>
+
+<body>
+  <!-- navbar-->
+  <div class="white-bg">
+    <div class="container">
+      <div class="navbar navbar-default navbar-right navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header"><a class="pull-left logo block" href="/"></a><button class="navbar-toggle"
+              type="button" data-toggle="collapse" data-target=".navbar-collapse">Menu<i
+                class="fa fa-bars"></i></button></div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <!-- interns-->
+              <li class="dropdown"><a class="dropdown-toggle" href="" data-toggle="dropdown">interns <i
+                    class="caret"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/register/intern">register</a></li>
+                  <li><a href="/login">login</a></li>
+                </ul>
+              </li><!-- candidates-->
+              <li class="dropdown"><a class="dropdown-toggle" href="" data-toggle="dropdown">candidates <i
+                    class="caret"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/register/candidate">register</a></li>
+                  <li><a href="">View jobs</a></li>
+                  <li><a href="#">Career Tips</a></li>
+                </ul>
+              </li><!-- employers-->
+              <li class="dropdown"><a class="dropdown-toggle" href="" data-toggle="dropdown">employers <i
+                    class="caret"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/register/employer">register</a></li>
+                  <li><a href="#">Resume access packages</a></li>
+                  <li><a href="#">request for interns</a></li>
+                </ul>
+              </li><!-- login-->
+              <li><a href="/login"> log in </a></li><!-- signup-->
+              <li><a class="last" href="/register"> sign up </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end .navbar-->
+  <div class="inner-top register">
+    <div class="sm-container margin-auto m-mid-breather p-mid-breather p-heavy-side-breather">
+      <form class="p-heavy-side-breather m-mid-breather p-mid-breather white-bg" action="/auth/register" method="POST">
+        <h2 class="text-center">I&apos;m an Employer</h2>
+        <p class="text-center">Get instant access to great candidates</p>
+        <div class="sm-container m-mid-top-breather"><input type="hidden" name="account" value="employer" />
+          <div class="form-group"><input class="form-control" type="email" name="email"
+              placeholder="Company Email Address" value="" required="required" /></div>
+          <div class="form-group"><input class="form-control" type="text" name="company_name" placeholder="Company Name"
+              required="required" /></div>
+          <div class="form-group"><select class="form-control" id="jobField" name="job_field" required="required">
+              <option class="capitalize">Please select your industry</option>
+              <option class="capitalize" value="accountancy">accountancy</option>
+              <option class="capitalize" value="administration / management">administration / management</option>
+              <option class="capitalize" value="agriculture / farming">agriculture / farming</option>
+              <option class="capitalize" value="banking / finance / insurance">banking / finance / insurance</option>
+              <option class="capitalize" value="building / design / architecture">building / design / architecture
+              </option>
+              <option class="capitalize" value="business development">business development</option>
+              <option class="capitalize" value="business strategy / planning">business strategy / planning</option>
+              <option class="capitalize" value="charity / voluntary">charity / voluntary</option>
+              <option class="capitalize" value="construction / contract - management">construction / contract -
+                management</option>
+              <option class="capitalize" value="consulting / business strategy and planning">consulting / business
+                strategy and planning</option>
+              <option class="capitalize" value="creatives / arts / design / fashion">creatives / arts / design / fashion
+              </option>
+              <option class="capitalize" value="customer service">customer service</option>
+              <option class="capitalize" value="digital and creative">digital and creative</option>
+              <option class="capitalize" value="education / teaching / training">education / teaching / training
+              </option>
+              <option class="capitalize" value="engineering">engineering</option>
+              <option class="capitalize" value="estate agency">estate agency</option>
+              <option class="capitalize" value="executive / top management">executive / top management</option>
+              <option class="capitalize" value="graduate">graduate</option>
+              <option class="capitalize" value="healthcare / pharmaceutical">healthcare / pharmaceutical</option>
+              <option class="capitalize" value="hospitality / leisure / travels">hospitality / leisure / travels
+              </option>
+              <option class="capitalize" value="human resources">human resources</option>
+              <option class="capitalize" value="information technology">information technology</option>
+              <option class="capitalize" value="IT contractor">IT contractor</option>
+              <option class="capitalize" value="law / legal">law / legal</option>
+              <option class="capitalize" value="legal jobs">legal jobs</option>
+              <option class="capitalize" value="leisure and tourism jobs">leisure and tourism jobs</option>
+              <option class="capitalize" value="manufacturing / production">manufacturing / production</option>
+              <option class="capitalize" value="marketing / advertising / communications">marketing / advertising /
+                communications</option>
+              <option class="capitalize" value="Marketing and PR">Marketing and PR</option>
+              <option class="capitalize" value="Media">Media</option>
+              <option class="capitalize" value="Motoring andcAutomotive">Motoring andcAutomotive</option>
+              <option class="capitalize" value="NGO Community Services and Development">NGO Community Services and
+                Development</option>
+              <option class="capitalize" value="oil gas / mining energy">oil gas / mining energy</option>
+              <option class="capitalize" value="project / programme management">project / programme management</option>
+              <option class="capitalize" value="public sector">public sector</option>
+              <option class="capitalize" value="purchase ledger clerk">purchase ledger clerk</option>
+              <option class="capitalize" value="purchasing">purchasing</option>
+              <option class="capitalize" value="QA &amp; amp; QC / HSE">QA &amp; amp; QC / HSE</option>
+              <option class="capitalize" value="real estate / property">real estate / property</option>
+              <option class="capitalize" value="retail">retail</option>
+              <option class="capitalize" value="sales and marketing">sales and marketing</option>
+              <option class="capitalize" value="sales / business development">sales / business development</option>
+              <option class="capitalize" value="supply chain / procurement">supply chain / procurement</option>
+              <option class="capitalize" value="telecommunications">telecommunications</option>
+              <option class="capitalize" value="transportation">transportation</option>
+              <option class="capitalize" value="vocational trade and services">vocational trade and services</option>
+              <option class="capitalize" value="web designing / graphic design">web designing / graphic design</option>
+              <option class="capitalize" value="software development">software development</option>
+              <option class="capitalize" value="Information Technology">Information Technology</option>
+              <option class="capitalize">Others : Please specify</option>
+            </select></div><!-- if user selects "Others: Please Specify", this input pops up-->
+          <div class="form-group hide-el" id="hiddenJobField"><input class="form-control" type="text"
+              name="job_field_hidden" value="" placeholder="Please, enter your Industry here" /></div>
+          <div class="form-group"><input class="form-control" type="text" name="phone" value=""
+              placeholder="Phone Number" required="required" /></div>
+          <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"
+              value="" required="required" /></div>
+          <div class="form-group"><input class="btn main-btn form-control" name="submit" type="submit"
+              value="Register as an Employer" /></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>const jobField = document.getElementById("jobField");
+    const hiddenJobField = document.getElementById("hiddenJobField");
+    function selectChangeHandler(e) {
+      if (e.target.value == "Others : Please specify") {
+        hiddenJobField.classList.remove("hide-el");
+      } else {
+        hiddenJobField.classList.add("hide-el");
+      }
+    }
+    jobField.onchange = selectChangeHandler;</script><!-- footer-->
+  <footer class="white-bg m-heavy-top-breather p-heavy-breather" id="footer">
+    <div>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="footer-bx nwslttr">
+                <h4 class="hdln">Newsletter</h4>
+                <div>
+                  <p>Subscribe to jobConnect newsletter to be the first to know about current recruitment solution,
+                    Latest articles, Jobs / Vacancies updates.</p>
+                  <form class="m-light-top-breather" action="" method="post">
+                    <div class="form-group"><input class="form-control" type="text" name="email"
+                        placeholder="Enter Your Email Address" /></div>
+                    <div class="form-group"><input class="btn main-btn form-control" type="submit" name="submit"
+                        value="Submit" /></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Important Pages</h4>
+                <ul class="no-left-padding">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Recruiting Services</a></li>
+                  <li><a href="#">Resume Access Packages</a></li>
+                  <li><a href="#">Terms and Conditions</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="/register/">Register</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Contact Us</h4>
+                <div>
+                  <address><span>Our Address <br /><b>jobConnect.</b><br />3, Ogunlesi Street, Off Awoyokun,
+                      Onipanu, Lagos<br />+234 7037555895,<br /> info@jobConnect.com</span></address>
+                  <div id="social">
+                    <ul class="social-links clearfix">
+                      <li class="facebook"><a href="#" title="Facebook" target="_blank"><i
+                            class="fa fa-facebook"></i></a></li>
+                      <li class="googleplus"><a href="#" title="Google+" target="_blank"><i
+                            class="fa fa-google-plus"></i></a></li>
+                      <li class="twitter"><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li class="youtube"><a href="#" title="YouTube" target="_blank"><i class="fa fa-youtube"></i></a>
+                      </li>
+                      <li class="linkedin"><a href="#" title="LinkedIN" target="_blank"><i
+                            class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div><br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="javascripts/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascripts/project.js"></script>
+  <script type="text/javascript" src="javascripts/profile.js"></script>
+  <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <script>$(function () {
+      $("#datepicker").datepicker({
+        minDate: 0
+      });
+    });</script>
+  <!--<script type="text/javascript">
+CKEDITOR.instances.editor1.insertHTML(jobDescription);
+</script>-->
+  <script type="text/javascript" src="javascripts/settings.js"></script>
+</body>

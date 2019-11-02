@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<head>
+  <title>job Connect</title>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css"><!-- favicon-->
+  <link rel="shortcut icon" href="http://talentsandskills.net/favicon.ico">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/main.css">
+</head>
+
+<body>
+  <div class="white-bg">
+    <div class="container">
+      <div class="navbar navbar-default navbar-right navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header"><a class="pull-left logo block" href="/"></a><button class="navbar-toggle"
+              type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span
+                class="icon-bar"></span><span class="icon-bar"></span></button></div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/candidate/dashboard">dashboard </a></li>
+              <li><a href="/candidate/profile">my profile </a></li>
+              <li><a href=""> search jobs </a></li>
+              <li><a href="/candidate/settings">settings </a></li>
+              <li><a href="/logout"> logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- main content-->
+  <div class="inner-top dashboard">
+    <div class="p-heavy-breather">
+      <div class="container">
+        <div class="row">
+          <!-- sidebar-->
+          <!-- sidebar-->
+          <div class="sidebar col-sm-4">
+            <div class="light-bx-shadow m-mid-bottom-breather">
+              <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                <p class="headfont uppercase no-margin text-center">about me</p>
+              </div>
+              <div class="p-mid-side-breather p-light-breather">
+                <div class="row m-mid-bottom-breather">
+                  <div class="col-sm-4 bioimage"><img class="img-center img-circle img-responsive"
+                      src="//www.gravatar.com/avatar/f4a6d23c57cf7890412ea4e922515291?s=400&amp;r=pg&amp;d=mp" /></div>
+                  <div class="col-sm-8 bio-details">
+                    <p class="headfont lead no-margin"></p>
+                    <p class="mid-font-size">manuelocal@gmail.com</p>
+                    <p class="mid-font-size no-margin"><span class="txt-bold">Mobile:</span> 2347037555894</p>
+                    <p class="mid-font-size"><span class="txt-bold">D.O.B: </span> 20/08/1923</p>
+                  </div>
+                </div><!-- progress-bar-->
+                <p class="no-margin small-font-size secheadfont capitalize">profile strength: 100%</p><progress
+                  class="m-vlight-bottom-breather" max="100" value="100">
+                  <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element.-->
+                  <!-- Whereas older browsers will ignore the `progress` element and instead render the html inside it.-->
+                  <div class="progress-bar"><span style="width: 100; height: inherit;"></span></div>
+                </progress><!-- end .progress-bar-->
+                <!-- sidebar form-->
+                <div class="light-bx-shadow m-mid-bottom-breather">
+                  <div class="light-bx-shadow m-mid-bottom-breather">
+                    <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                      <p class="headfont uppercase no-margin text-center">browse jobs</p>
+                    </div>
+                    <div class="p-mid-side-breather p-light-breather">
+                      <form method="get" action="">
+                        <div class="form-group"><input class="form-control" type="text" name="keyword"
+                            placeholder="job title, skills or                  company" /></div>
+                        <div class="form-group"><select class="form-control" name="location">
+                            <option>location</option>
+                            <option value="lagos">lagos</option>
+                            <option value="abuja">abuja</option>
+                          </select></div>
+                        <div class="form-group"><input class="form-control btn sec-btn uppercase" type="submit"
+                            value="find jobs" /></div>
+                      </form>
+                    </div>
+                  </div>
+                </div><!-- // shortlisted jobs /*-->
+                <div class="light-bx-shadow m-mid-bottom-breather">
+                  <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                    <p class="headfont uppercase no-margin text-center">shortlisted jobs</p>
+                  </div>
+                  <div class="p-mid-side-breather p-light-breather">
+                    <p>You haven&apos;t shortlisted any jobs</p>
+                  </div>
+                </div><!-- */ // applied jobs-->
+                <div class="light-bx-shadow m-mid-bottom-breather">
+                  <div class="p-vlight-breather sec-bg p-mid-side-breather">
+                    <p class="headfont uppercase no-margin text-center">applied jobs</p>
+                  </div>
+                  <div class="p-mid-side-breather p-light-breather">
+                    <p>You haven&apos;t applied for any job</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- mainbar-->
+          <div class="col-sm-8 mainbar">
+            <!-- account settings-->
+            <div>
+              <div class="light-bx-shadow">
+                <div class="p-vlight-breather sec-bg p-mid-side-breather m-light-bottom-breather">
+                  <p class="headfont uppercase no-margin">account settings </p>
+                </div>
+                <div class="p-light-bottom-breather p-heavy-side-breather">
+                  <div class="m-light-bottom-breather">
+                    <!-- flash messages and errors-->
+                    <div class="row">
+                      <!-- password-->
+                      <div class="col-sm-6">
+                        <div class="m-light-bottom-breather">
+                          <p class="capitalize no-margin txt-bold">Password</p>
+                          <p class="mid-font-size"><a id="chng-pwd" href="">Change Password</a></p><!-- password form-->
+                          <div class="hide-el" id="pswd-div">
+                            <form class="sm" action="" method="post">
+                              <div class="form-group"><label class="capitalize small-font-size">Enter your old
+                                  password</label><input class="form-control" type="password" name="password"
+                                  placeholder="Enter your old password"></div>
+                              <div class="form-group"><label class="capitalize small-font-size">Enter your new
+                                  password</label><input class="form-control" type="password" name="new_password"
+                                  placeholder="Enter your new password"></div>
+                              <div class="form-group"><label class="capitalize small-font-size">confirm your new
+                                  password</label><input class="form-control" type="password" name="confirm_password"
+                                  placeholder="Confirm your new password"></div>
+                              <div class="row">
+                                <div class="col-sm-8"><input class="capitalize btn sec-btn form-control" type="submit"
+                                    name="submit" value="submit"></div>
+                                <div class="col-sm-4"><a class="btn main-btn capitalize form-control" id="cx-pswd"
+                                    href="">cancel</a></div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div><!-- email-->
+                      <div class="col-sm-6">
+                        <div class="m-light-bottom-breather">
+                          <p class="capitalize no-margin txt-bold">Email</p>
+                          <p class="mid-font-size">yusuf_rafiu@yahoo.co.uk<br><a id="chng-email" href="">Change
+                              Email</a></p><!-- email form-->
+                          <div class="hide-el" id="email-div">
+                            <form class="sm" method="post" action="">
+                              <div class="form-group"><label class="capitalize small-font-size">enter your new
+                                  email</label><input class="form-control" type="email" name="email"
+                                  placeholder="enter your new email"></div>
+                              <div class="row">
+                                <div class="col-sm-8"><input class="btn sec-btn form-control capitalize" type="submit"
+                                    name="submit" value="submit"></div>
+                                <div class="col-sm-4"><a class="form-control capitalize btn main-btn" id="cx-email"
+                                    href="">cancel</a></div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <!-- avatar-->
+                      <div class="col-sm-6">
+                        <div class="m-light-bottom-breather">
+                          <p class="capitalize no-margin txt-bold m-vlight-bottom-breather">profile avatar </p>
+                          <p class="mid-font-size capitalize">
+                            <!-- <img src="" class="img-responsive" style="width: 100px;">--><img class="img-responsive"
+                              src="/images/candidate-placeholder.jpg" style="width: 100px;"><a id="chng-avtr"
+                              href="">change avatar </a></p><!-- avatar form-->
+                          <div class="hide-el" id="avtr-div">
+                            <form class="sm" method="post" action="" enctype="multipart/form-data"><input type="hidden"
+                                name="MAX_FILE_SIZE" value="1000000"><input type="hidden" name="type" value="update">
+                              <div class="form-group"><label class="capitalize small-font-size">browse to select a new
+                                  avatar </label><input type="file" name="avatar"></div>
+                              <div class="row">
+                                <div class="col-sm-8"><input class="btn sec-btn form-control capitalize" type="submit"
+                                    name="submit" value="submit"></div>
+                                <div class="col-sm-4"><a class="form-control capitalize btn main-btn" id="cx-avtr"
+                                    href="">cancel</a></div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- footer-->
+  <footer class="white-bg m-heavy-top-breather p-heavy-breather" id="footer">
+    <div>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="footer-bx nwslttr">
+                <h4 class="hdln">Newsletter</h4>
+                <div>
+                  <p>Subscribe to jobConnect newsletter to be the first to know about current recruitment solution,
+                    Latest articles, Jobs / Vacancies updates.</p>
+                  <form class="m-light-top-breather" action="" method="post">
+                    <div class="form-group"><input class="form-control" type="text" name="email"
+                        placeholder="Enter Your Email Address"></div>
+                    <div class="form-group"><input class="btn main-btn form-control" type="submit" name="submit"
+                        value="Submit"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Important Pages</h4>
+                <ul class="no-left-padding">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Recruiting Services</a></li>
+                  <li><a href="#">Resume Access Packages</a></li>
+                  <li><a href="#">Terms and Conditions</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="/register/">Register</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="footer-bx">
+                <h4 class="hdln">Contact Us</h4>
+                <div>
+                  <address><span>Our Address <br><b>jobConnect.</b><br>3, Ogunlesi Street, Off Awoyokun,
+                      Onipanu, Lagos<br>+234 7037555895,<br> info@jobConnect.com</span></address>
+                  <div id="social">
+                    <ul class="social-links clearfix">
+                      <li class="facebook"><a href="#" title="Facebook" target="_blank"><i
+                            class="fa fa-facebook"></i></a></li>
+                      <li class="googleplus"><a href="#" title="Google+" target="_blank"><i
+                            class="fa fa-google-plus"></i></a></li>
+                      <li class="twitter"><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li class="youtube"><a href="#" title="YouTube" target="_blank"><i class="fa fa-youtube"></i></a>
+                      </li>
+                      <li class="linkedin"><a href="#" title="LinkedIN" target="_blank"><i
+                            class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="javascripts/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascripts/project.js"></script>
+  <script type="text/javascript" src="javascripts/settings.js"></script>
+</body>
