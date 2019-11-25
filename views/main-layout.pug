@@ -1,0 +1,193 @@
+doctype html
+head
+  title Talent and Skills 
+  meta(name='viewport' content='width=device-width')
+  meta(http-equiv='content-type' content='text/html; charset=utf-8')
+  meta(name='description' content='')
+  link(rel='stylesheet' href='/stylesheets/bootstrap.min.css')
+  // favicon
+  link(rel='shortcut icon' href='http://talentsandskills.net/favicon.ico')
+  link(href='http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='/stylesheets/main.css')
+  link(rel='stylesheet' href='/stylesheets/pricing-table.css')
+  link(rel='stylesheet' href='/stylesheets/jobs.css')
+  link(rel='stylesheet' href='/stylesheets/404.min.css')
+
+body
+  // navbar
+  .white-bg
+    .container
+      .navbar.navbar-default.navbar-right.navbar-fixed-top
+        .container
+          .navbar-header
+            a.pull-left.logo.block(href='.')
+            button.navbar-toggle(type='button' data-toggle='collapse' data-target='.navbar-collapse')
+              | Menu
+              i.fa.fa-bars
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              // interns
+              li
+                a.dropdown-toggle(href='' data-toggle='dropdown')
+                  | interns 
+                  i.caret
+                ul.dropdown-menu
+                  li
+                    a(href='register/intern') register
+                  li
+                    a(href='/login') login
+              // candidates
+              li.dropdown
+                a.dropdown-toggle(href='' data-toggle='dropdown')
+                  | candidates 
+                  i.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/register/candidate') register
+                  li
+                    a(href='/jobs') View Vacancies
+                  li
+                    a(href='') Employability Training
+                  li
+                    a(href='') CV &amp; Resume Writing Services
+                  li
+                    a(href='') Career Tips
+              // employers
+              li.dropdown
+                a.dropdown-toggle(href='' data-toggle='dropdown')
+                  | employers 
+                  i.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/register/employer') register
+                  li
+                    a(href='/') CV access packages
+                  li
+                    a(href='/') request for recruitment service
+                  li
+                    a(href='/') request for interns
+                  li
+                    a(href='') recruitment advice
+              // services
+              li.dropdown
+                a.dropdown-toggle(href='' data-toggle='dropdown')
+                  | services 
+                  i.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/') background checks
+                  li
+                    a(href='/') corporate trainings
+                  li
+                    a(href='/') HR outsourcing
+                  li
+                    a(href='/') pre-employment testing
+                  li
+                    a(href='/') recruitment solutions
+              // career resources
+              li.dropdown
+                a.dropdown-toggle(href='' data-toggle='dropdown')
+                  | career resources 
+                  i.caret
+                ul.dropdown-menu
+                  li
+                    a(href='') career tips
+                  li
+                    a(href='')
+                      | recruitment
+                      | advice
+              // login
+              li
+                a(href='/login')  log in 
+              // signup
+              li
+                a.last(href='/register')  sign up 
+  // end .navbar
+
+  block content
+  
+
+  // footer
+  footer#footer.white-bg.m-heavy-top-breather.p-heavy-breather
+    div
+      .footer-top
+        .container
+          .row
+            .col-sm-4
+              .footer-bx.nwslttr
+                h4.hdln Newsletter
+                div
+                  p
+                    | Subscribe to TalentsandSkills newsletter to be the first to know about current recruitment solution,
+                    | Latest articles, Jobs / Vacancies updates.
+                  form.mt-2(action='' method='post')
+                    .form-group
+                      input.form-control(type='text' name='email' placeholder='Enter Your Email Address')
+                    .form-group
+                      input.btn.main-btn.form-control(type='submit' name='submit' value='Submit')
+            .col-sm-4
+              .footer-bx
+                h4.hdln Important Pages
+                ul.no-left-padding
+                  li
+                    a(href='/about-us') About Us
+                  li
+                    a(href='/our-services') Recruiting Services
+                  li
+                    a(href='/cv-packages') CV Access Packages
+                  li
+                    a(href='/terms-and-policies') Terms and Conditions
+                  li
+                    a(href='/contact-us') Contact Us
+                  li
+                    a(href='/register/') Register
+            .col-sm-4
+              .footer-bx
+                h4.hdln Contact Us
+                div
+                  address
+                    span
+                      | Our Address 
+                      br
+                      b The Professional Place.
+                      br
+                      | 12B, Olumoroti Street, Gbagada Phase II,
+                      |                     Gbagada
+                      br
+                      | +234 8125771958, +234 8058805444, +234 8058805333,
+                      br
+                      |                     info@talentsandskills.net
+                  #social
+                    ul.social-links.clearfix
+                      li.facebook
+                        a(href='https://www.facebook.com/TalentsandSkills' title='Facebook' target='_blank')
+                          i.fa.fa-facebook
+                      li.googleplus
+                        a(href='https://plus.google.com/113481807732399969558' title='Google+' target='_blank')
+                          i.fa.fa-google-plus
+                      li.twitter
+                        a(href='https://twitter.com/talentsnskills' title='Twitter' target='_blank')
+                          i.fa.fa-twitter
+                      li.youtube
+                        a(href='https://www.youtube.com/channel/UCSZCTlJnuCkZanJxiU6XTMg' title='YouTube' target='_blank')
+                          i.fa.fa-youtube
+                      li.linkedin
+                        a(href='https://www.linkedin.com/company/talents-and-skills' title='LinkedIN' target='_blank')
+                          i.fa.fa-linkedin
+                  br
+  script(type='text/javascript' src='/javascripts/jquery-1.11.2.min.js')
+  script(type='text/javascript' src='/javascripts/bootstrap.min.js')
+  script(type='text/javascript' src='/javascripts/project.js')
+  script(type='text/javascript' src='/javascripts/profile.js')
+  script(type='text/javascript' src='/ckeditor/ckeditor.js')
+  script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' integrity='sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=' crossorigin='anonymous')
+  script.
+    $(function () {
+    $("#datepicker").datepicker({
+    minDate: 0
+    });
+    });
+  script(type='text/javascript').
+    CKEDITOR.instances.editor1.insertHTML(jobDescription);
+  script(type='text/javascript' src='/javascripts/settings.js')
+

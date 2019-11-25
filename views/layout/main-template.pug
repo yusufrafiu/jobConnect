@@ -1,0 +1,156 @@
+head
+  title jobConnect | Welcome
+  meta(name='viewport' content='width=device-width')
+  meta(http-equiv='content-type' content='text/html; charset=utf-8')
+  meta(name='description' content='')
+  link(rel='stylesheet' href='/stylesheets/bootstrap.min.css')
+  // favicon
+  link(rel='shortcut icon' href='http://talentsandskills.net/favicon.ico')
+  link(href='http://netdna.bootstrapcdn.com/font-awesome/4.1.0/stylesheets/font-awesome.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='/stylesheets/main.css')
+  link(rel='stylesheet' href='/stylesheets/pricing-table.css')
+  link(rel='stylesheet' href='/stylesheets/jobs.css')
+  link(rel='stylesheet' href='/stylesheets/404.min.css')
+  
+body 
+  // navbar
+  .white-bg
+    .container
+      .navbar.navbar-default.navbar-right.navbar-fixed-top
+        .container
+          .navbar-header
+            a.pull-left.logo.block(href='/')
+            button.navbar-toggle(type='button' data-toggle='collapse' data-target='.navbar-collapse')
+              | Menu
+              i.fa.fa-bars
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              // interns
+              li.dropdown
+                a.dropdown-toggle(href='' data-toggle='dropdown')
+                  | interns 
+                  i.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/register/intern') register
+                  li
+                    a(href='/login') login
+              // candidates
+              li.dropdown
+                a.dropdown-toggle(href='' data-toggle='dropdown')
+                  | candidates 
+                  i.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/register/candidate') register
+                  li
+                    a(href='') View jobs
+                  li
+                    a(href='#') Career Tips
+              // employers
+              li.dropdown
+                a.dropdown-toggle(href='' data-toggle='dropdown')
+                  | employers 
+                  i.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/register/employer') register
+                  li
+                    a(href='#') Resume access packages
+                  li
+                    a(href='#') request for interns
+              // login
+              li
+                a(href='/login')  log in 
+              // signup
+              li
+                a.last(href='/register')  sign up 
+  // end .navbar
+
+  block content
+
+  // footer
+  footer#footer.white-bg.m-heavy-top-breather.p-heavy-breather
+    div
+      .footer-top
+        .container
+          .row
+            .col-sm-4
+              .footer-bx.nwslttr
+                h4.hdln Newsletter
+                div
+                  p
+                    | Subscribe to jobConnect newsletter to be the first to know about current recruitment solution,
+                    | Latest articles, Jobs / Vacancies updates.
+                  form.m-light-top-breather(action='' method='post')
+                    .form-group
+                      input.form-control(type='text' name='email' placeholder='Enter Your Email Address')
+                    .form-group
+                      input.btn.main-btn.form-control(type='submit' name='submit' value='Submit')
+            .col-sm-4
+              .footer-bx
+                h4.hdln Important Pages
+                ul.no-left-padding
+                  li
+                    a(href='#') About Us
+                  li
+                    a(href='#') Recruiting Services
+                  li
+                    a(href='#') Resume Access Packages
+                  li
+                    a(href='#') Terms and Conditions
+                  li
+                    a(href='#') Contact Us
+                  li
+                    a(href='/register/') Register
+            .col-sm-4
+              .footer-bx
+                h4.hdln Contact Us
+                div
+                  address
+                    span
+                      | Our Address 
+                      br
+                      b jobConnect.
+                      br
+                      | 3, Ogunlesi Street, Off Awoyokun,
+                      |                         Onipanu, Lagos
+                      br
+                      | +234 7037555895,
+                      br
+                      |                         info@jobConnect.com
+                  #social
+                    ul.social-links.clearfix
+                      li.facebook
+                        a(href='#' title='Facebook' target='_blank')
+                          i.fa.fa-facebook
+                      li.googleplus
+                        a(href='#' title='Google+' target='_blank')
+                          i.fa.fa-google-plus
+                      li.twitter
+                        a(href='#' title='Twitter' target='_blank')
+                          i.fa.fa-twitter
+                      li.youtube
+                        a(href='#' title='YouTube' target='_blank')
+                          i.fa.fa-youtube
+                      li.linkedin
+                        a(href='#' title='LinkedIN' target='_blank')
+                          i.fa.fa-linkedin
+                  br
+  script(type='text/javascript' src='/javascripts/jquery-1.11.2.min.js')
+  script(type='text/javascript' src='/javascripts/bootstrap.min.js')
+  script(type='text/javascript' src='/javascripts/project.js')
+  script(type='text/javascript' src='/javascripts/profile.js')
+  script(type='text/javascript' src='/ckeditor/ckeditor.js')
+  script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' integrity='sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=' crossorigin='anonymous')
+  script.
+    $(function () {
+    $("#datepicker").datepicker({
+    minDate: 0
+    });
+    });
+  //
+    <script type="text/javascript">
+    CKEDITOR.instances.editor1.insertHTML(jobDescription);
+    </script>
+  script(type='text/javascript' src='/javascripts/settings.js')

@@ -1,0 +1,127 @@
+extends layout/dashboard-template
+
+include mixins/_intern-sidebar
+
+block content
+  // main content
+  .inner-top.dashboard
+    .p-heavy-breather
+      .container
+        .row
+          // sidebar
+          .sidebar.col-sm-4
+            +internSidebar()
+          // mainbar
+          .col-sm-8.mainbar
+            // inline_message()
+            // (empty($intern->cv_path))
+            .m-mid-bottom-breather
+              .light-bx-shadow
+                .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+                  p.headfont.uppercase.no-margin
+                    | upload your internship letter here
+                .p-light-bottom-breather.p-mid-side-breather
+                  // cv form
+                  // inline_errors()
+                  form(method='post' action='' enctype='multipart/form-data')
+                    .m-light-bottom-breather
+                      ul.no-list-style.no-left-padding
+                        li
+                          | The file size must not be more than
+                          span.txt-bold 500KB
+                        li
+                          | File format must be any of these:
+                          span.txt-bold .pdf, .docx, .doc 
+                    input(type='hidden' name='MAX_FILE_SIZE' value='maxCVSize()')
+                    .form-group
+                      input(type='file' name='upload' style='padding-left: 0;')
+                    input.btn.uppercase.m-vlight-top-breather.sec-btn.mid-font-size(type='submit' name='submit' value='upload letter')
+            .m-mid-bottom-breather
+              // internship requests
+              .light-bx-shadow
+                .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+                  p.headfont.uppercase.no-margin
+                    | companies that want to employ you
+                .p-light-bottom-breather.p-mid-side-breather
+                  | inline_message()
+                  // internRegistration
+                  p
+                    | You haven&apos;t registered for an internship spot.
+                    a(href='') Click Here
+                    |  to register
+                  p You haven&apos;t been invited by any companies yet.
+                  // else
+                  // $internshipsPerPage
+                  .table-responsive
+                    table
+                      tbody
+                        // table head
+                        tr.capitalize
+                          td S/N
+                          td employer&apos;s name
+                          td location
+                          td action
+                        // table data
+                        tr
+                          // // serial number
+                          td 1
+                          // // employer's name
+                          td.capitalize
+                            a(href='dashboard/employer.php?id={$employer->id}')
+                              | strategic dots digital solutions
+                          // // location
+                          td Lagos
+                          // // action
+                          td.small-font-size
+                            a(href='') Accept
+                            br
+                            a(href='') Reject
+                  // pagination buttons
+              // end job posted
+            div
+              .light-bx-shadow
+                .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+                  p.headfont.uppercase.no-margin profile settings
+                .p-light-bottom-breather.p-mid-side-breather
+                  div
+                    .row
+                      // // email
+                      .col-sm-4
+                        div
+                          p.mid-font-size.capitalize.no-margin.txt-bold
+                            | Email
+                          p.small-font-size yusuf_rafiu@yahoo.co.uk
+                      // // phone
+                      .col-sm-4
+                        div
+                          p.mid-font-size.capitalize.no-margin.txt-bold
+                            | Phone Number
+                          p.small-font-size 07037555894
+                      // // dob
+                      .col-sm-4
+                        div
+                          p.mid-font-size.capitalize.no-margin.txt-bold
+                            | Date of Birth
+                          p.small-font-size 19.08.2303
+                      // // end row
+                    .row.m-light-top-breather
+                      // // gender
+                      .col-sm-4
+                        div
+                          p.mid-font-size.capitalize.no-margin.txt-bold
+                            | Gender
+                          p.small-font-size male
+                      // // location
+                      .col-sm-4
+                        div
+                          p.mid-font-size.capitalize.no-margin.txt-bold
+                            | Location
+                          p.small-font-size Lagos
+                    // // update btn
+                    .clearfix.m-mid-top-breather.sm-container
+                      a.btn.sec-btn.capitalize.form-control(href='') update your profile
+            // end .featured-jobs
+          // end .mainbar
+        // end .row
+      // end .container
+  // end main content

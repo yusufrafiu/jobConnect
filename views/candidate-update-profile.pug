@@ -1,0 +1,26 @@
+extends layout/dashboard-template
+
+block variables
+  - const account = user.account, current = 'profile'
+
+include mixins/_candidate-sidebar
+include mixins/candidate_profile/_personal_details
+include mixins/candidate_profile/_prospective_job
+include mixins/candidate_profile/_education
+include mixins/candidate_profile/_skills
+include mixins/candidate_profile/_professional_memberships
+include mixins/candidate_profile/_employment_history
+include mixins/candidate_profile/_interests
+
+
+block content
+  .row
+    // sidebar
+    +candidateSidebar(user)
+    // mainbar
+    .col-sm-8.mainbar
+      if(type === 'education')
+        +#{type}(user, education)
+      else
+        +#{type}(user)
+  // footer

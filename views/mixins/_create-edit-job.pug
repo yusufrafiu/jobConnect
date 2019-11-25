@@ -1,0 +1,92 @@
+mixin createEditJob(job = {}, start = {})
+  .jobs
+    .light-bx-shadow
+      .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+        if (!job.title)
+          p.headfont.uppercase.no-margin create a job posting
+        else
+          p.headfont.uppercase.no-margin edit a job posting: #{job.title}
+      .p-mid-bottom-breather.p-mid-side-breather
+        form(method='post', noValidate, action='')
+          p.headfont.brandtxt-color.capitalize job prerequisites
+          .row
+            .col-sm-6
+              // job title
+              .form-group
+                label.capitalize.small-font-size Job title 
+                input.form-control(name='title', placeholder='Enter your job title', value= `${job.title || (start.title === undefined ? '' : start.title)}`)
+              // job field
+              .form-group
+                label.capitalize.small-font-size field 
+                select.form-control(name='field')
+                  each field in globalData.jobFields
+                    if(field == job.field || field == start.field)
+                      option(value= field, selected) #{field}
+                    else
+                      option(value=`${field}`) #{field}
+              // candidate qualification
+              .form-group
+                label.capitalize.small-font-size candidate qualification 
+                select.form-control(name='qualification')
+                  each degree in globalData.degrees
+                    option(value=`${degree}`) #{degree}
+              // candidate experience
+              .form-group
+                label.capitalize.small-font-size Candidate experience 
+                select.form-control(name='experience')
+                  each experience in globalData.jobExperiences
+                    if(experience == job.experience)
+                      option(value=`${experience}`, selected) #{experience} years
+                    else
+                    option(value=`${experience}`) #{experience} years
+              // job deadline
+              .form-group
+                label.capitalize.small-font-size Job deadline
+                input.form-control(type='datetime-local', name='deadline')
+            .col-sm-6
+              // job type
+              .form-group
+                label.capitalize.small-font-size Job Availability
+                select.form-control(name='availability')
+                  each availability in globalData.jobAvailabilities
+                    if(availability == job.availability)
+                      option(value=`${availability}`, selected) #{availability}
+                    else
+                      option(value=`${availability}`) #{availability}
+              // job location
+              .form-group
+                label.capitalize.small-font-size Job Location 
+                select.form-control(name='location')
+                  each state in globalData.states
+                    if(state == job.location)
+                      option(value=`${state}`, selected) #{state}
+                    else
+                      option(value=`${state}`) #{state}
+              // salary range
+              .form-group
+                label.capitalize.small-font-size salary range 
+                select.form-control(name='salary_range')
+                  each range in globalData.salaryRanges
+                    if(range == job.salaryRange)
+                      option(value=`${range}`, selected)=`₦${gfunctions.salaryRange(range)[0]} - ₦${gfunctions.salaryRange(range)[1]}`
+                    else
+                      option(value=`${range}`)=`₦${gfunctions.salaryRange(range)[0]} - ₦${gfunctions.salaryRange(range)[1]}`
+              // keywords
+              .form-group
+                label.capitalize.small-font-size job keywords
+                input.form-control(type='text', name='keywords', placeholder='seperate each keyword with a comma(,)', value= `${job.keywords ? job.keywords.join(', ') : ''}`)
+
+          hr
+          // job description
+          div(classs='')
+            p.headfont.brandtxt-color.capitalize job description
+            .form-group
+              p.small-font-size
+                span.txt-bold.brandtxt-color NB: 
+                | Describe the nature of the job in details.
+                br
+                |  Remember to list out
+                span.txt-bold.uppercase  responsibities of candidates and job requirements. 
+              textarea.form-control.m-mid-bottom-breather#description(name='description')
+          .m-mid-top-breather.sm-container
+            input.btn.sec-btn.form-control(type='submit', name='submit', value='Confirm and Post Job')

@@ -1,0 +1,80 @@
+mixin employment_history(candidate)
+
+  div
+    .light-bx-shadow
+      .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+        p.headfont.uppercase.no-margin employment history
+      .p-light-bottom-breather.p-mid-side-breather
+        // add new entry
+        form.sm.p-light-bottom-breather(method='post', action='')
+          // input: HIDDEN TYPE FIELD
+          input(type='hidden', name='update_type', value='empl')
+          // entry number
+          p.uppercase.txt-bold.text-center
+            | Entry: 
+            span.secbrandtxt-color 1
+          // 1st col
+          .row
+            // input: JOB TITLE
+            .col-sm-6
+              .form-group
+                label.txt-bold.small-font-size.capitalize Job title 
+                input.form-control(type='text', name='job_title', value='', placeholder='Enter your job position')
+              // input: EMPLOYER
+              .form-group
+                label.txt-bold.small-font-size.capitalize employer 
+                input.form-control(type='text', name='employer', value='', placeholder='Enter the name of your employer')
+              // input: DURATION IN ORGANIZATION
+              .form-group
+                label.txt-bold.small-font-size.capitalize duration in organization 
+                input.form-control(type='text', name='time_span', value='', placeholder='Example: 2012 - 2014')
+              // 2nd col
+            .col-sm-6
+              // input: RESPONSIBILITIES
+              .form-group
+                label.txt-bold.small-font-size.capitalize responsibilities
+                textarea.form-control(name='responsibilities', rows='10')
+          .m-vlight-breather
+            // SUBMIT & CANCEL BTNS
+            .row
+              .col-sm-8
+                input.form-control.btn.sec-btn.capitalize(type='submit', value='Update entry', name='submit')
+              .col-sm-4
+                a.form-control.capitalize.btn.main-btn(href='') delete entry
+        hr
+        .m-light-breather
+          a.form-control.btn.main-btn.capitalize(href='') + add a new entry
+        form.sm.p-light-bottom-breather(method='post', action='')
+          // input: HIDDEN TYPE and ACTION FIELD
+          input(type='hidden', name='update_type', value='empl')
+          input(type='hidden', value='add', name='action')
+          // 1st column starts
+          .row
+            .col-sm-6
+              // input: JOB TITLE
+              .form-group
+                label.txt-bold.small-font-size.capitalize Job title 
+                input.form-control(type='text', name='job_title', value=' ', placeholder='Enter your job position')
+              // input: EMPLOYER
+              .form-group
+                label.txt-bold.small-font-size.capitalize employer 
+                input.form-control(type='text', name='employer', value=' ', placeholder='Enter the name of your employer')
+              // input: DURATION
+              .form-group
+                label.txt-bold.small-font-size.capitalize duration in organization 
+                input.form-control(type='text', name='time_span', value=' ', placeholder='Example: 2012 - 2014')
+              // end: 1st column
+            // 2nd column starts
+            .col-sm-6
+              //input: JOB RESPONSIBILITIES
+              .form-group
+                label.txt-bold.small-font-size.capitalize responsibilities
+                textarea.form-control(name='responsibilities', rows='10')
+                  | &quot;Describe your responsibilites in the organization
+              // end: 2nd column
+          // input: SUBMIT
+          .m-vlight-breather
+            input.form-control.btn.sec-btn.capitalize(type='submit', value='Update entry', name='submit')
+          // end: FORM
+        // update entry
+  // end employment history

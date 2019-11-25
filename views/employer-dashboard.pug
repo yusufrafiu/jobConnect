@@ -1,0 +1,60 @@
+extends layout/dashboard-template
+block variables
+  - const account = user.account, current = 'dashboard'
+
+include mixins/_employer-sidebar
+
+block content
+  .row
+    // sidebar
+    +employerSidebar(user)
+    // mainbar
+    .col-sm-8.mainbar
+      .jobs.m-mid-bottom-breather
+        // job posted
+        .light-bx-shadow
+          .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+            p.headfont.uppercase.no-margin your job postings
+          .p-light-bottom-breather.p-mid-side-breather
+            if(jobs === undefined || jobs.length == 0 )
+                p You don't have any job postings yet. 
+                  a(href="/employer/jobs/create") Click Here
+                  |  to post a new job
+            else
+              .table-responsive
+              table
+                tbody
+                  tr.capitalize
+                    td S/N
+                    td job title
+                    td applications
+                    td current status
+                    td action
+
+                  each job in jobs
+                    tr
+                      td #{parseInt(jobs.indexOf(job)) + 1}
+                      td.capitalize
+                        a(href=`jobs/${job.id}`) #{job.title}
+                      
+                      if(job.candidates.length > 0)
+                        td 
+                          a(href="") #{job.candidates.length}
+                      else
+                        td #{job.candidates.length}
+                      
+                      td.capitalize #{job.status()}
+                      td.small-font-size
+                        a(href=`jobs/edit/${job.id}`) Edit
+                        br
+                        a(href=`jobs/delete/${job.id}`) Delete
+
+        // orders
+        .orders.m-mid-bottom-breather.m-mid-top-breather
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+              p.headfont.uppercase.no-margin my subscription
+            .p-light-bottom-breather.p-mid-side-breather
+              p You have not yet subscribed to any package. 
+                a(href="") Click here to subscribe
+                  

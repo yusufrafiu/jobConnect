@@ -1,0 +1,63 @@
+mixin jobSearchFilter()
+  .light-bx-shadow.m-mid-bottom-breather
+    .p-vlight-breather.sec-bg.p-mid-side-breather
+      p.headfont.uppercase.no-margin.text-center filter search results
+      .p-mid-side-breather.p-light-breather
+        #accordion.panel-group.capitalize
+        form#search_filter(method='post' action='')
+          // // experience
+          .panel.panel-default
+            .panel-heading(data-toggle='collapse' data-parent='#accordion' data-target='#accordion-1')
+              p.panel-title
+                span.glyphicon.glyphicon-chevron-down.pull-right
+                a.accordion-toggle Experience
+            #accordion-1.panel-collapse.collapse
+              .panel-body
+                .p-mid-side-breather
+                  label.radio
+                    input(type='radio' name='job_experience' id='' value='1 - 3')
+                    | years
+          // // salary range
+          .panel.panel-default
+            .panel-heading(data-toggle='collapse' data-parent='#accordion' data-target='#accordion-3')
+              p.panel-title
+                span.glyphicon.glyphicon-chevron-down.pull-right
+                a.accordion-toggle salary range
+            #accordion-3.panel-collapse.collapse
+              .panel-body
+                .p-mid-side-breather
+                  label.radio
+                    input(type='radio' name='salary_range' value='30,000 - 100,000')
+                    |                   30,000 - 100,0000
+          // // work type
+          .panel.panel-default
+            .panel-heading(data-toggle='collapse' data-parent='#accordion' data-target='#accordion-4')
+              p.panel-title
+                span.glyphicon.glyphicon-chevron-down.pull-right
+                a.accordion-toggle work type
+            #accordion-4.panel-collapse.collapse
+              .panel-body
+                .p-mid-side-breather
+                  label.radio
+                    input(type='radio' name='job_type' value='full time')
+                    |                   full time
+          // // location
+          .panel.panel-default
+            .panel-heading(data-toggle='collapse' data-parent='#accordion' data-target='#accordion-5')
+              p.panel-title
+                span.glyphicon.glyphicon-chevron-down.pull-right
+                a.accordion-toggle location
+            #accordion-5.panel-collapse.collapse
+              .panel-body
+                #top-states
+                  .p-mid-side-breather
+                    label.radio
+                      input(type='radio' name='location' value='')
+                .p-mid-side-breather
+                  label.radio
+                    input(type='radio' name='location' id='' value='Lagos')
+                    |                   Lagos
+                  label.radio
+                    input(type='radio' name='location' id='' value='Abuja')
+                    |                   Abuja
+          input.btn.sec-btn.form-control.uppercase(type='submit' name='submit' value='filter')

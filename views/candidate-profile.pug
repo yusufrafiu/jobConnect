@@ -1,0 +1,199 @@
+extends layout/dashboard-template
+
+block variables
+  - const account = user.account, current = 'profile', job = `${user.prospectiveJob[0] || {} }`
+  - const {getYear} = dateFns
+
+include mixins/_candidate-sidebar
+
+
+block content
+  .row
+    // sidebar
+    +candidateSidebar(user)
+    // mainbar
+    .col-sm-8.mainbar
+      // personal details
+      .pd
+        .light-bx-shadow
+          .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+            p.headfont.uppercase.no-margin personal details 
+          .p-light-bottom-breather.p-mid-side-breather
+            .m-light-bottom-breather
+              p.capitalize
+                span.txt-bold Personal Statement:
+                | This is a personal statement
+              p.capitalize
+                | You don&apos;t have any personal statement.
+                a(href='') click here
+                |  to add one
+            .row
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Email
+                  p.small-font-size #{user.email}
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Phone Number
+                  p.small-font-size #{user.phone}
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Date of Birth
+                  p.small-font-size #{user.dob}
+            .row.m-light-top-breather
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Gender
+                  p.small-font-size.capitalize #{user.gender}
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Location
+                  p.small-font-size.capitalize #{user.location}
+            .clearfix.small-font-size
+              a.btn.sec-btn.capitalize.pull-right(href='/candidate/profile/update/personal_details') edit
+      // end personal details
+      // openBtn
+      .sm-container.m-mid-top-breather.small-font-size
+        .margin-auto
+          a#openOtherDetails.form-control.capitalize.btn.sec-btn(href='') show more profile options
+      #other-profiles(style='display: none;')
+        // career summary
+        .m-mid-top-breather.cs
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+              p.headfont.uppercase.no-margin prospective job
+            .p-light-bottom-breather.p-mid-side-breather
+              .row
+                .col-sm-6
+                  div
+                    p.mid-font-size.capitalize.no-margin.txt-bold title
+                    p(class="small-font-size capitalize")= `${job.title || 'You haven\'t set your preferred job type'}`
+                  .m-vlight-top-breather
+                    p.mid-font-size.capitalize.no-margin.txt-bold field
+                    p(class="small-font-size capitalize")= `${job.field || 'You haven\'t set your preferred job field'}`
+                  .m-vlight-top-breather
+                    p.mid-font-size.capitalize.no-margin.txt-bold avaliability
+                    p(class="small-font-size capitalize")= `${job.availability || 'You haven\'t set your preferred job availability'}`
+                .col-sm-6
+                  div
+                    p.mid-font-size.capitalize.no-margin.txt-bold prefered salary
+                    if (job.salaryRange)
+                      p(class="small-font-size") &#x20A6;#{gfunctions.salaryRange(job.salaryRange)[0]} - &#x20A6;#{gfunctions.salaryRange(job.salaryRange)[1]}
+                    else
+                      p.small-font-size You haven't set your salary range
+                  .m-vlight-top-breather
+                    p.mid-font-size.capitalize.no-margin.txt-bold desired location
+                    p(class="small-font-size")= (job.location) || 'You haven\'t set your preferred job location'
+              .clearfix.small-font-size
+                a.btn.sec-btn.capitalize.pull-right(href='/candidate/profile/update/prospective_job') edit
+        // end career summary
+        // education
+        .m-mid-top-breather.edu
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+              p.headfont.uppercase.no-margin education
+            .p-light-bottom-breather.p-mid-side-breather
+              each education in user.education
+                .row.m-vlight-breather
+                  .col-sm-4
+                    div
+                      p.mid-font-size.capitalize.no-margin.txt-bold #{education.course}
+                      p.small-font-size.capitalize #{education.degree}
+                  .col-sm-4
+                    div
+                      p.mid-font-size.capitalize.no-margin.txt-bold #{education.school}
+                      p.small-font-size.capitalize #{education.location}
+                  .col-sm-4
+                    div
+                      p.mid-font-size.capitalize.no-margin.txt-bold #{education.grade}
+                      p.small-font-size.capitalize #{getYear(education.year)}
+                hr
+                .clearfix.small-font-size
+                  a.btn.sec-btn.capitalize.pull-right(href=`/candidate/profile/update/education?id=${education.id}`) edit
+                
+        // end education
+        // skills
+        .m-mid-top-breather
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+              p.headfont.uppercase.no-margin Professional skills
+            .p-light-bottom-breather.p-mid-side-breather
+              p.capitalize PHP / MySQL 
+              p.capitalize Project Management Professional 
+              p.capitalize Communication 
+              .clearfix.small-font-size
+                a.btn.sec-btn.capitalize.pull-right(href='/candidate/profile/update/skills' id='') edit
+        // end skills
+        // professional memberships
+        .m-mid-top-breather
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+              p.headfont.uppercase.no-margin professional memberships / certifications
+            .p-light-bottom-breather.p-mid-side-breather
+              .m-light-top-breather
+                p.mid-font-size.capitalize.no-margin.txt-bold Association of software engineers
+                p.small-font-size.capitalize 2014
+              .m-light-top-breather
+                p.mid-font-size.capitalize.no-margin.txt-bold Diploma in Telesales and Customer Service
+                p.small-font-size.capitalize 2015
+              // <p>You are not a member of any organization yet.</p>
+              .clearfix.small-font-size
+                a.btn.sec-btn.capitalize.pull-right(href='/candidate/profile/update/professional_memberships' id='') edit
+        // end professional memberships
+        // employment history
+        .m-mid-top-breather
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+              p.headfont.uppercase.no-margin employment history
+            .p-light-bottom-breather.p-mid-side-breather
+              .row.m-vlight-breather
+                .col-sm-4
+                  div
+                    p.mid-font-size.capitalize.no-margin.txt-bold employer
+                    p.small-font-size.capitalize Pass.Ng Nigeria
+                .col-sm-4
+                  div
+                    p.mid-font-size.capitalize.no-margin.txt-bold job title
+                    p.small-font-size.capitalize Chief Software Developer
+                .col-sm-4
+                  div
+                    p.mid-font-size.capitalize.no-margin.txt-bold time span
+                    p.small-font-size.capitalize 2012 - 2014
+              .row
+                .col-sm-12
+                  p.mid-font-size.capitalize.no-margin.txt-bold Responsibilities
+                  p.small-font-size.capitalize I was the chief software developer for the company
+              hr
+              // <p>You haven't added any employment history yet.</p>
+              .clearfix.small-font-size
+                a.btn.sec-btn.capitalize.pull-right(href='/candidate/profile/update/employment_history') edit
+        // end employment history
+        // interests
+        .m-mid-top-breather
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+              p.headfont.uppercase.no-margin interests
+            .p-light-bottom-breather.p-mid-side-breather
+              p.capitalize football, coding, reading
+              .clearfix.small-font-size
+                a.btn.sec-btn.capitalize.pull-right(href='/candidate/profile/update/interests' id='') edit
+        // end interests
+        // closeBtn
+        .sm-container.m-mid-top-breather.small-font-size
+          .margin-auto
+            a#closeOtherDetails.form-control.capitalize.btn.sec-btn(href='') show less details
+
+  script.
+    let openBtn = document.getElementById('openOtherDetails');
+    let closeBtn = document.getElementById('closeOtherDetails');
+    let otherProfileContainer = document.getElementById('other-profiles');
+    openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openBtn.style.cssText = 'display: none';
+    otherProfileContainer.style.cssText = 'display: block';
+    });
+    closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    otherProfileContainer.style.cssText = 'display: none';
+    openBtn.style.cssText = 'display: block';
+    });

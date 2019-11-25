@@ -1,0 +1,23 @@
+mixin employerSidebar(user)
+  .sidebar.col-sm-4
+    .light-bx-shadow.m-mid-bottom-breather
+      .p-vlight-breather.sec-bg.p-mid-side-breather
+        p.headfont.uppercase.no-margin.text-center company profile
+      .p-mid-side-breather.p-light-breather
+        img.img-center.img-responsive(src=`${user.avatar}` alt='')
+        p.lead.headfont.m-light-top-breather.no-margin #{user.companyName}
+        p.secheadfont.capitalize #{user.field}
+    .light-bx-shadow.m-mid-bottom-breather
+      .p-vlight-breather.sec-bg.p-mid-side-breather
+        p.headfont.uppercase.no-margin.text-center create a job posting
+      .p-mid-side-breather.p-light-breather
+        form(method='post' action=`/employer/jobs/start-creating`)
+          .form-group
+            label.capitalize job title
+            input.form-control(type='text' name='title' placeholder='Enter Your Job Title')
+          .form-group
+            label.capitalize field
+            select.form-control(name='field')
+              each field in globalData.jobFields
+                option(value=`${field}`) #{field}
+          input.btn.sec-btn.heavy-font-size.form-control(type='submit' value='Start')

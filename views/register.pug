@@ -1,0 +1,59 @@
+extends layout/main-template
+
+block content
+  .container.inner-top.p-heavy-top-breather.registration
+    .row
+      // signup with social network
+      .col-sm-6.rgstrtn-col
+        .heavy-container.light-bx-shadow.p-light-breather.p-mid-side-breather.sm-br
+          p.text-center.capitalize.headfont
+            | Sign up / Login with a social network
+          .m-light-breather.mid-container
+            // LinkedIN
+            .m-light-bottom-breather
+              a.rgstrtn-social.lnkdin(href='') LinkedIN
+            // Facebook
+            .m-light-bottom-breather
+              a.rgstrtn-social.fb(href='') Facebook
+            // Twitter
+            .m-light-bottom-breather
+              a.rgstrtn-social.twt(href='') Twitter
+      // signup with email address
+      .col-sm-6.rgstrtn-col
+        .heavy-container.light-bx-shadow.p-light-breather.p-mid-side-breather.sm-br
+          p.text-center.capitalize.headfont
+            | Sign up with your email address
+          .m-light-breather.mid-container
+            form(action='/start-registration', method='post')
+              .form-group
+                label.sr-only(for='name') Select One
+                select#accountType.form-control(name='account')
+                  option Choose your account type
+                  option(value='candidate') Candidate
+                  option(value='intern') Intern
+                  option(value='employer') Employer
+              #userName.form-group
+                label.sr-only(for='name') Enter Your First Name
+                input.form-control(placeholder='Enter Your First Name', name='firstname', type='text', value='')
+              .form-group
+                label.sr-only(for='email') Enter Your Email
+                input.form-control(placeholder='Enter Your email', name='email', type='text', value='')
+              input.btn.capitalize.main-btn.form-control(type='submit', name='submit', value='Register')
+  script.
+    const accountType = document.getElementById("accountType"),
+    userName = document.getElementById("userName"),
+    form = document.querySelector("form");
+
+    let employerHTML = `<label for="name" class="sr-only">Enter Your Company's Name</label>`;
+    employerHTML += `<input class="form-control" placeholder="Enter Your Company's Name" name="company" type="text" value="">`;
+    let otherHTML = `<label for="name" class="sr-only">Enter Your First Name</label>`;
+    otherHTML += `<input class="form-control" placeholder="Enter Your First Name" name="firstname" type="text" value="">`;
+
+    accountType.onchange = e => {
+      if (e.target.value == "employer") {
+        userName.innerHTML = employerHTML;
+      } else if (e.target.value == "intern" || e.target.value == "candidate") {
+        userName.innerHTML = otherHTML;
+      }
+    };
+

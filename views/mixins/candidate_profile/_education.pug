@@ -1,0 +1,108 @@
+mixin education(candidate, education)
+
+  div
+    .light-bx-shadow
+      .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+        p.headfont.uppercase.no-margin education
+      .p-light-bottom-breather.p-mid-side-breather
+        // add new entry
+        // update entry
+        form.sm.p-light-bottom-breather(method='post', action='/candidate/profile/update/education')
+          input(name= `${education.id}`, type="hidden")
+          .row
+            p.uppercase.txt-bold.text-center
+              | Entry: 
+              span.secbrandtxt-color 1
+            // first column
+            .col-sm-6
+              // input: COURSE
+              .form-group
+                label.txt-bold.small-font-size.capitalize course
+                input.form-control(type='text', value=`${education.course || ''}`, name='course', placeholder='enter your course title')
+              // input: DEGREE
+              .form-group
+                label.txt-bold.small-font-size.capitalize Degree
+                select.form-control(name='degree')
+                  each degree in globalData.degrees
+                    if(degree === education.degree)
+                      option.capitalize(value= `${degree}` selected) #{degree}
+                    else
+                      option.capitalize(value= `${degree}`) #{degree}
+              // input: SCHOOL NAME
+              .form-group
+                label.txt-bold.small-font-size.capitalize school
+                input.form-control(type='text', value=`${education.school || ''}`, name='school', placeholder='enter your school')
+            // 2nd column
+            .col-sm-6
+              // input: SCHOOL LOCATION
+              .form-group
+                label.txt-bold.small-font-size.capitalize  country
+                select.form-control(name='location')
+                  each country in globalData.countries
+                    if(education.location === country)
+                      option.capitalize(value= `${country}` selected) #{country}
+                    else
+                      option.capitalize(value= `${country}`) #{country}
+              // input: GRADE
+              .form-group
+                label.txt-bold.small-font-size.capitalize grade
+                input.form-control(type='text', value=`${education.grade || ''}`, name='grade', placeholder='example: 2nd Class Upper(2.1)')
+              // input: YEAR
+              .form-group
+                label.txt-bold.small-font-size.capitalize year
+                input.form-control(name="year", type="date", value=`${dateFns.format(education.year, 'yyyy-MM-dd')}` placeholder="Enter your year of graduation")
+
+          // SUBMIT & CANCEL BTNS
+          .m-vlight-breather
+            .row
+              // input: SUBMIT BTN
+              .col-sm-8
+                input.form-control.btn.sec-btn.capitalize(type='submit', value='edit entry', name='submit')
+              // input: CANCEL BTN
+              .col-sm-4
+                a.form-control.capitalize.btn.main-btn(href='/candidate/profile') Cancel
+        p You don&apos;t have any educational records. Click on the button below to add one
+        hr
+        .m-light-breather
+          a#openNewEntryForm.form-control.btn.main-btn.capitalize(href='') + add a new entry
+        form#newEntryForm.sm.p-light-bottom-breather(method='post', action='', style='display:none')
+          input(type='hidden', value='edu', name='update_type')
+          input(type='hidden', value='add', name='action')
+          .row
+            // 1st column
+            .col-sm-6
+              // input: COURSE
+              .form-group
+                label.txt-bold.small-font-size.capitalize course
+                input.form-control(type='text', value='', name='course', placeholder='enter the course title')
+              // input: DEGREE
+              .form-group
+                label.txt-bold.small-font-size.capitalize degree
+                select.form-control(name='degree')
+                  option(value='') BSc
+              // input: SCHOOL
+              .form-group
+                label.txt-bold.small-font-size.capitalize school
+                input.form-control(type='text', value=' ', name='school', placeholder='enter the school')
+            // 2nd column
+            .col-sm-6
+              // input: LOCATION
+              .form-group
+                label.txt-bold.small-font-size.capitalize  location
+                input.form-control(type='text', value=' ', name='location', placeholder='example: Nigeria')
+              // input: GRADE
+              .form-group
+                label.txt-bold.small-font-size.capitalize grade
+                input.form-control(type='text', value=' ', name='grade', placeholder='example: 2nd Class Upper(2.1)')
+              // input: YEAR
+              .form-group
+                label.txt-bold.small-font-size.capitalize year
+          // inputs: SUBMIT & CANCEL BUTTONS
+          .m-vlight-breather
+            .row
+              // input: SUBMIT BTN
+              .col-sm-8
+                input.form-control.btn.sec-btn.capitalize(type='submit', value='Add entry', name='submit')
+              // input: CANCEL BTN
+              .col-sm-4
+                a.form-control.capitalize.btn.main-btn(href='/candidate/profile') cancel

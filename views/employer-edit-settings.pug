@@ -1,0 +1,89 @@
+extends layout/dashboard-template
+block variables
+  - const account = user.account, current = 'profile'
+
+include mixins/_employer-sidebar
+
+block content
+  .row
+      +employerSidebar(user)
+      // mainbar
+      .col-sm-8.mainbar
+        // employer details
+        .employer_details
+                .light-bx-shadow
+                  .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+                    p.headfont.uppercase.no-margin details 
+                  .p-light-bottom-breather.p-mid-side-breather
+                    // flash messages, error messages
+                    .row
+                      .col-sm-6
+                        form.sm(action='', method='post')
+                          input(type='hidden', name='details', value='details')
+                          .form-group
+                            p.mid-font-size.capitalize.no-margin.txt-bold company name
+                            input.form-control(type='text', name='company_name', value=`${user.companyName ? user.companyName : ''}`)
+                          .form-group
+                            p.mid-font-size.capitalize.no-margin.txt-bold Email
+                            input.form-control(type='email', name='email', value=`${user.email ? user.email : ''}`)
+                          .form-group
+                            p.mid-font-size.capitalize.no-margin.txt-bold phone number
+                            input.form-control(type='tel', name='phone', value=`${user.phone ? user.phone : ''}`)
+                          .form-group
+                            p.mid-font-size.capitalize.no-margin.txt-bold field
+                              select.form-control(name='job_field')
+                                each field in globalData.jobFields
+                                  if(field == user.field)
+                                    option(value=`${field}`, selected) #{field}
+                                  else
+                                    option(value=`${field}`) #{field}
+                          .form-group
+                            p.mid-font-size.capitalize.no-margin.txt-bold about company
+                            textarea.form-control(name='about_company', rows='6', value=`${user.aboutCompany ? user.aboutCompany : ''}`)
+                          .form-group
+                            p.mid-font-size.capitalize.no-margin.txt-bold address
+                            textarea.form-control(name='address', rows='6' value=`${user.address ? user.address : ''}`)
+                          input.btn.sec-btn.form-control(type='submit', name='submit', value='Update Profile')
+                      .col-sm-6
+                        // password
+                        .m-light-bottom-breather
+                          p.capitalize.no-margin.txt-bold Password
+                          p.mid-font-size
+                            a#chng-pwd(href='') Change Password
+                          // password form
+                          #pswd-div.hide-el
+                            form.sm(action='', method='post')
+                              .form-group
+                                label.capitalize.small-font-size Enter your old password
+                                input.form-control(type='password', name='password', placeholder='Enter your old password')
+                              .form-group
+                                label.capitalize.small-font-size Enter your new password
+                                input.form-control(type='password', name='new_password', placeholder='Enter your new password')
+                              .form-group
+                                label.capitalize.small-font-size confirm your new password
+                                input.form-control(type='password', name='confirm_password', placeholder='Confirm your new password')
+                              .row
+                                .col-sm-8
+                                  input.capitalize.btn.sec-btn.form-control(type='submit', name='submit', value='submit')
+                                .col-sm-4
+                                  a#cx-pswd.btn.main-btn.capitalize.form-control(href='') cancel
+                        // avatar
+                        .m-light-bottom-breather
+                          p.capitalize.no-margin.txt-bold.m-vlight-bottom-breather profile avatar 
+                          p.mid-font-size.capitalize
+                            img.img-responsive(src='', style='width: 100px;')
+                            // <img src="/images/company.png" class="img-responsive" style="width: 100px;">
+                            a#chng-avtr(href='') change avatar 
+                          // avatar form
+                          #avtr-div.hide-el
+                            form.sm(method='post', action='', enctype='multipart/form-data')
+                              input(type='hidden', name='MAX_FILE_SIZE', value='100000')
+                              .form-group
+                                label.capitalize.small-font-size browse to select a new avatar 
+                                input(type='file', name='avatar')
+                              .row
+                                .col-sm-8
+                                  input.btn.sec-btn.form-control.capitalize(type='submit', name='submit', value='submit')
+                                .col-sm-4
+                                  a#cx-avtr.form-control.capitalize.btn.main-btn(href='') cancel
+              

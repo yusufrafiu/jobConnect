@@ -1,0 +1,83 @@
+extends main-layout
+
+block content
+
+  // .top
+  .top
+    .sm-container.text-center
+      .text-center
+        form.form-inline.p-light-top-breather.p-light-bottom-breather(action='/view-jobs/job-search' method='get')
+          h1.sectxt-color
+            span Find your dream job.
+            |  Right now.
+          .inputs-div
+            input(type='text' name='keyword' placeholder='Job Title, Skills or Company')
+            select(name='location')
+              option(selected='' disabled='') Location
+              // foreach ($states as $state)
+              option(value='state->name')
+                | $state-&gt;name
+              // endforeach
+            input.visible-xs.btn.main-btn(type='submit' name='submit' value='Find Jobs')
+          .m-light-top-breather.hidden-xs
+            input.btn.main-btn(type='submit' name='submit' value='Find Jobs')
+    // .jumbo-stripe
+    .jumbo-stripe.p-vlight-breather
+      .container
+        a.sectxt-color(href='#')
+          p
+            | Looking for candidates? We can help you find better ones. Find the most qualified people faster with our
+            | help. Start now.
+    // end .jumbo-stripe
+  // end .top
+  // .content-topbar
+  .m-mid-top-breather.content-topbar.m-mid-bottom-breather
+    .container
+      .row
+        .col-sm-3.widget.hidden-xs
+          .light-bx-shadow.text-center
+            .tp
+              p.headfont.capitalize.brandtxt-color Let employers find you
+            .btm.mid-font-size.p-heavy-left-breather.p-light-right-breather
+              p
+                | Talents and Skills make it possible for employers to view your profile and contact you
+                | directly.
+              a.btn.capitalize.inline-block.m-light-bottom-breather.m-light-top-breather.main-btn(href='/register/')
+                | upload your
+                | CV
+        .col-sm-9.search-kw
+          .margin-auto.light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather
+              p.headfont.capitalize.no-margin
+                | Employers are searching for candidates with the following
+                | qualities:
+            .tp.capitalize
+              a.inline-block(href='') accounting
+              a.inline-block(href='') information technology
+  // end .content-topbar
+  // .mainbar
+  .m-mid-top-breather.m-mid-bottom-breather.mainbar
+    .container
+      .row
+        // .featured-jobs
+        // this should remain col-sm-8
+        .col-sm-12.featured-jobs.m-light-bottom-breather
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather
+              p.headfont.uppercase.no-margin Featured jobs
+            .item
+              .btm.m-mid-top-breather
+                .row
+                  .col-sm-2
+                    .emplyr-img-bx
+                      // if ($employer->avatar_url)
+                      img.img-responsive(src='/images/company.png')
+                  .col-sm-9
+                    h2.mid-font-size.capitalize.no-margin
+                      a(href='') accounting
+                    p.small-font-size.secheadfont Techstudio Academy
+                    p.mid-font-size Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        // end .featured-jobs
+        // .career-content-section
+        // This will be active when the blog has been developed
+  // end .mainbar

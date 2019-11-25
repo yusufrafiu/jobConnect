@@ -1,0 +1,16 @@
+mixin topJobSearch()
+
+  // top job search form
+  .container
+    .white-bg.p-mid-breather.lg-br
+      .mid-container
+        form(action='' method='get')
+          .row
+            .col-sm-5
+              input.form-control.capitalize(type='text' name='keyword' placeholder='job title, skills or company')
+            .col-sm-5
+              select.form-control(name='location')
+                option(value='lagos') lagos
+                option(value='abuja') abuja
+            .col-sm-2
+              input.btn.main-btn.capitalize.form-control(type='submit' name='' value='find')

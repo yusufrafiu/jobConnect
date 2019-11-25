@@ -1,0 +1,45 @@
+mixin skills(candidate)
+
+  div
+    .light-bx-shadow
+      .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+        p.headfont.uppercase.no-margin Professional skills
+      .p-light-bottom-breather.p-mid-side-breather
+        // add new entry
+        // update entry
+        form.sm.p-light-bottom-breather(method='post', action='')
+          // input: HIDDEN TYPE FIELD
+          p.uppercase.txt-bold.text-center
+            | Entry:
+            span.secbrandtxt-color  1
+          // input: SKILL NAME
+          .form-group
+            label Skill: 
+            input.form-control(type='text', name='skill_name', value='', placeholder='Enter a skill name')
+            // UPDATE AND DELETE BTNS
+          .row
+            .col-sm-6
+              // input: UPDATE
+              .form-group
+                input.form-control.btn.sec-btn.capitalize(type='submit', value='Update entry', name='submit')
+            // input: DELETE
+            .col-sm-6
+              .form-group
+                a.form-control.btn.main-btn.capitalize(href='') delete entry
+        hr
+        .m-light-breather
+          a.form-control.btn.main-btn.capitalize(href='') + add a new entry
+        form.sm.p-light-bottom-breather(method='post', action='')
+          // input: HIDDEN TYPE and ACTION FIELD
+          input(type='hidden', name='update_type', value='sk')
+          input(type='hidden', value='add', name='action')
+          p.uppercase.txt-bold.text-center
+            | Entry: 
+            span.secbrandtxt-color 1
+          // input: SKILL NAME
+          .form-group
+            label Skill: 
+            input.form-control(type='text', name='skill_name', value='', placeholder='Enter a skill name')
+          // input: SUBMIT BTN
+          input.form-control.btn.sec-btn.capitalize(type='submit', value='Add entry', name='submit')
+  // end skills

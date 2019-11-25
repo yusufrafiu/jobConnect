@@ -1,0 +1,48 @@
+extends layout/dashboard-template
+
+block variables
+  - const account = user.account
+
+include mixins/_candidate-sidebar
+include mixins/_top-job-search
+include mixins/_job-search-filter
+
+
+block content
+  // main content
+  .inner-top.dashboard
+    .p-light-breather
+      +topJobSearch()
+      .container.m-heavy-top-breather
+        .row
+          // sidebar
+          .sidebar.col-sm-4
+            // job search filter
+            +jobSearchFilter()
+          // jobs section
+          .col-sm-8.featured-jobs.p-light-top-breather.white-bg
+            .text-center
+              p.lead.capitalize
+                | 2 Jobs matching your search criteria
+            .item
+              .btm.m-mid-top-breather
+                .row
+                  .col-sm-2
+                    .emplyr-img-bx
+                      img.img-responsive(src='')
+                  .col-sm-9
+                    h2.mid-font-size.capitalize.no-margin
+                      | Accounting job
+                    p.small-font-size.secheadfont.uppercase
+                      | Techstudio Academy
+                    .small-font-size
+                      p.no-margin.txt-bold.capitalize
+                        | Lagos
+                      p.no-top-margin.txt-bold.capitalize
+                        | 30,000 - 100,0000 / per month
+                    div
+                      | Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic distinctio rem fuga dignissimos aliquam
+                      | labore? Vel asperiores nihil sed totam soluta iure iusto repellat itaque consequatur molestias? Ut
+                      | dolores natus esse? Neque tempora consequatur nihil odit cum voluptates consectetur voluptatibus.
+                    .m-vlight-breather
+                      a.btn.main-btn.btn-lg.capitalize(href='') apply

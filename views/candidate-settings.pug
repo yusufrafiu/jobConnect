@@ -1,0 +1,88 @@
+extends layout/dashboard-template
+
+block variables
+  - const account = user.account
+
+include mixins/_candidate-sidebar
+
+
+block content
+  .row
+    // sidebar
+    +candidateSidebar(user)
+    // mainbar
+    .col-sm-8.mainbar
+      // account settings
+      div
+            .light-bx-shadow
+              .p-vlight-breather.sec-bg.p-mid-side-breather.m-light-bottom-breather
+                p.headfont.uppercase.no-margin account settings 
+              .p-light-bottom-breather.p-heavy-side-breather
+                .m-light-bottom-breather
+                  // flash messages and errors
+                  .row
+                    // password
+                    .col-sm-6
+                      .m-light-bottom-breather
+                        p.capitalize.no-margin.txt-bold Password
+                        p.mid-font-size
+                          a#chng-pwd(href='') Change Password
+                        // password form
+                        #pswd-div.hide-el
+                          form.sm(action='' method='post')
+                            .form-group
+                              label.capitalize.small-font-size Enter your old password
+                              input.form-control(type='password' name='password' placeholder='Enter your old password')
+                            .form-group
+                              label.capitalize.small-font-size Enter your new password
+                              input.form-control(type='password' name='new_password' placeholder='Enter your new password')
+                            .form-group
+                              label.capitalize.small-font-size confirm your new password
+                              input.form-control(type='password' name='confirm_password' placeholder='Confirm your new password')
+                            .row
+                              .col-sm-8
+                                input.capitalize.btn.sec-btn.form-control(type='submit' name='submit' value='submit')
+                              .col-sm-4
+                                a#cx-pswd.btn.main-btn.capitalize.form-control(href='') cancel
+                    // email
+                    .col-sm-6
+                      .m-light-bottom-breather
+                        p.capitalize.no-margin.txt-bold Email
+                        p.mid-font-size
+                          | yusuf_rafiu@yahoo.co.uk
+                          br
+                          a#chng-email(href='') Change Email
+                        // email form
+                        #email-div.hide-el
+                          form.sm(method='post' action='')
+                            .form-group
+                              label.capitalize.small-font-size enter your new email
+                              input.form-control(type='email' name='email' placeholder='enter your new email')
+                            .row
+                              .col-sm-8
+                                input.btn.sec-btn.form-control.capitalize(type='submit' name='submit' value='submit')
+                              .col-sm-4
+                                a#cx-email.form-control.capitalize.btn.main-btn(href='') cancel
+                  .row
+                    // avatar
+                    .col-sm-6
+                      .m-light-bottom-breather
+                        p.capitalize.no-margin.txt-bold.m-vlight-bottom-breather profile avatar 
+                        p.mid-font-size.capitalize
+                          // <img src="" class="img-responsive" style="width: 100px;">
+                          img.img-responsive(src='/images/candidate-placeholder.jpg' style='width: 100px;')
+                          a#chng-avtr(href='') change avatar 
+                        // avatar form
+                        #avtr-div.hide-el
+                          form.sm(method='post' action='' enctype='multipart/form-data')
+                            input(type='hidden' name='MAX_FILE_SIZE' value='1000000')
+                            input(type='hidden' name='type' value='update')
+                            .form-group
+                              label.capitalize.small-font-size browse to select a new avatar 
+                              input(type='file' name='avatar')
+                            .row
+                              .col-sm-8
+                                input.btn.sec-btn.form-control.capitalize(type='submit' name='submit' value='submit')
+                              .col-sm-4
+                                a#cx-avtr.form-control.capitalize.btn.main-btn(href='') cancel
+    

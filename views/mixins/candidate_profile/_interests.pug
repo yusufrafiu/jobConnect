@@ -1,0 +1,18 @@
+mixin interests(candidate)
+
+  div
+    .light-bx-shadow
+      .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+        p.headfont.uppercase.no-margin interests
+      .p-light-bottom-breather.p-mid-side-breather
+        form.sm.p-light-bottom-breather(method='post', action='')
+          .form-group
+            label.txt-bold.small-font-size.capitalize interests
+            textarea.form-control(name='responsibilities', rows='5')  
+          .m-vlight-breather
+            .row
+              .col-sm-8
+                input.form-control.btn.sec-btn.capitalize(type='submit', value='Update entry', name='submit')
+              .col-sm-4
+                a.form-control.capitalize.btn.main-btn(href='/candidate/profile') cancel
+  // end interests

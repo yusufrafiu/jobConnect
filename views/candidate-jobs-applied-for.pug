@@ -1,0 +1,46 @@
+extends layout/dashboard-template
+
+block variables
+  - const account = user.account
+  
+include mixins/_candidate-sidebar
+
+block content
+  .row
+    // sidebar
+    +candidateSidebar(user)
+    // mainbar
+    .col-sm-8.mainbar
+            .jobs.m-mid-bottom-breather
+              .light-bx-shadow
+                .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+                  p.headfont.uppercase.no-margin recently applied jobs 
+                .p-light-bottom-breather.p-mid-side-breather
+                  // flash messages
+                  // <p>You haven't applied for any job yet. <a href="">Click Here</a> to search for jobs</p>
+                  .table-responsive
+                    table
+                      tbody
+                        tr.capitalize
+                          td S/N
+                          td job title
+                          td current status
+                          td action
+                        // 1
+                        tr
+                          td 1
+                          td.capitalize
+                            a(href='') Accounting job
+                          td.capitalize  expired 
+                          // <td class="capitalize"> live </td>
+                          td.small-font-size
+                            a(href='') Delete
+                        // 2
+                        tr
+                          td 2
+                          td.capitalize
+                            a(href='') Another job
+                          td.capitalize  live 
+                          td.small-font-size
+                            a(href='') Delete
+            // end .new jobs

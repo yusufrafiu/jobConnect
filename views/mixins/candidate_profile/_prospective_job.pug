@@ -1,0 +1,59 @@
+mixin prospective_job(candidate)
+  - const { jobFields, states, jobExperiences, jobLevels, jobAvailabilities, minQualifications, salaryRanges } = globalData;
+  - const job = candidate.prospectiveJob[0]
+  
+  div
+    .light-bx-shadow
+      .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+        p.headfont.uppercase.no-margin prospective job
+      #di-pd.p-light-bottom-breather.p-mid-side-breather
+        form.sm(action='/candidate/profile/update/prospective_job', method='post')
+          .row
+            .col-sm-6
+              .form-group
+                label.txt-bold.small-font-size.capitalize desired job title
+                input.form-control(type='text', value=`${job.title || ''}`, name='title', placeholder='enter your desired job title')
+              // input: JOB FIELD
+              .form-group
+                label.txt-bold.small-font-size.capitalize job field
+                select.form-control(name='field')
+                  each field in jobFields
+                    if(job.field === field)
+                      option(value=`${field}` selected) #{field}
+                    else
+                      option(value= `${field}`) #{field}
+              // input: JOB TYPE
+              .form-group
+                label.txt-bold.small-font-size.capitalize job availability
+                select.form-control.capitalize(name='availability')
+                  each availability in jobAvailabilities
+                    if(job.availability === availability)
+                      option(value= `${availability}` selected) #{availability}
+                    else
+                      option(value= `${availability}`) #{availability}
+            .col-sm-6.m-light-bottom-breather
+              // input: PREFERRED SALARY
+              .form-group
+                label.txt-bold.small-font-size.capitalize preferred salary
+                select.form-control.capitalize(name='salary_range')
+                  each range in salaryRanges
+                    if(job.salaryRange === range)
+                      option(value= `${range}` selected) &#x20A6;#{gfunctions.salaryRange(range)[0]} - &#x20A6;#{gfunctions.salaryRange(range)[1]}
+                    else
+                      option(value= `${range}`) &#x20A6;#{gfunctions.salaryRange(range)[0]} - &#x20A6;#{gfunctions.salaryRange(range)[1]}
+              // input: LOCATION
+              .form-group
+                label.txt-bold.small-font-size.capitalize desired job location
+                select.form-control(name='location', id='')
+                  each state in states
+                    if(state === job.location)
+                      option(value= `${state}` selected) #{state}
+                    else
+                      option(value= `${state}`) #{state}
+            .sm-container.m-vlight-breather
+              // input: SUBMIT & CANCEL BTNS
+              .row
+                .col-sm-8
+                  input.form-control.btn.sec-btn.capitalize(type='submit', value='Confirm Changes', name='submit')
+                .col-sm-4
+                  a.form-control.capitalize.btn.main-btn(href='/candidate/profile') cancel

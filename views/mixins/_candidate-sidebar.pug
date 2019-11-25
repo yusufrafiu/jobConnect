@@ -1,0 +1,58 @@
+mixin candidateSidebar(candidate)
+  // sidebar
+  .sidebar.col-sm-4
+    .light-bx-shadow.m-mid-bottom-breather
+      .p-vlight-breather.sec-bg.p-mid-side-breather
+        p.headfont.uppercase.no-margin.text-center about me
+      .p-mid-side-breather.p-light-breather
+        .row.m-mid-bottom-breather
+          .col-sm-4.bioimage
+            img(src=`${candidate.avatar}`).img-center.img-circle.img-responsive
+          .col-sm-8.bio-details
+            p.headfont.lead.no-margin #{candidate.name}
+            p.mid-font-size #{candidate.email}
+            p.mid-font-size.no-margin
+              span.txt-bold Mobile:
+              |  #{candidate.phone}
+            p.mid-font-size
+              span.txt-bold D.O.B: 
+              |  20/08/1923
+        // progress-bar
+        p.no-margin.small-font-size.secheadfont.capitalize
+          | profile strength: #{candidate.profileStrength()}%
+        progress.m-vlight-bottom-breather(max='100' value=`${candidate.profileStrength()}`)
+          // Browsers that support HTML5 progress element will ignore the html inside `progress` element.
+          // Whereas older browsers will ignore the `progress` element and instead render the html inside it.
+          .progress-bar
+            span(style=`width: ${candidate.profileStrength()}; height: inherit;`)
+        // end .progress-bar
+        // sidebar form
+        .light-bx-shadow.m-mid-bottom-breather
+          .light-bx-shadow.m-mid-bottom-breather
+            .p-vlight-breather.sec-bg.p-mid-side-breather
+              p.headfont.uppercase.no-margin.text-center browse jobs
+            .p-mid-side-breather.p-light-breather
+              form(method='get' action='')
+                .form-group
+                  input.form-control(type='text' name='keyword' placeholder='job title, skills or\
+                  company')
+                .form-group
+                  select.form-control(name='location')
+                    option location
+                    option(value='lagos') lagos
+                    option(value='abuja') abuja
+                .form-group
+                  input.form-control.btn.sec-btn.uppercase(type='submit' value='find jobs')
+        // // shortlisted jobs /*
+        .light-bx-shadow.m-mid-bottom-breather
+          .p-vlight-breather.sec-bg.p-mid-side-breather
+            p.headfont.uppercase.no-margin.text-center shortlisted jobs
+          .p-mid-side-breather.p-light-breather
+            p You haven&apos;t shortlisted any jobs
+        // */ // applied jobs
+        .light-bx-shadow.m-mid-bottom-breather
+          .p-vlight-breather.sec-bg.p-mid-side-breather
+            p.headfont.uppercase.no-margin.text-center applied jobs
+          .p-mid-side-breather.p-light-breather
+            p You haven&apos;t applied for any job
+                    

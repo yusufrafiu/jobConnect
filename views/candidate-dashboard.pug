@@ -1,0 +1,80 @@
+extends layout/dashboard-template
+block variables
+  - const account = user.account, current = 'dashboard'
+
+include mixins/_candidate-sidebar
+
+
+
+block content
+  .row
+    +candidateSidebar(user)
+    // mainbar
+    .col-sm-8.mainbar
+      // flash message
+      if (!user.cvPath)
+        .m-mid-bottom-breather
+          .light-bx-shadow
+            .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+              p.headfont.uppercase.no-margin upload your resume / cv here
+            .p-light-bottom-breather.p-mid-side-breather
+              // cv form
+              // flash errors
+              form(method='post' action='/candidate/upload/cv' enctype='multipart/form-data')
+                .m-light-bottom-breather
+                  ul.no-list-style.no-left-padding
+                    li
+                      | The file size must not be more than
+                      span.txt-bold 500KB
+                    li
+                      | File format must be any of these:
+                      span.txt-bold .pdf, .docx, .doc 
+                input(type='hidden' name='MAX_FILE_SIZE' value='500000')
+                .form-group
+                  input(type='file' name='cv' style='padding-left: 0;')
+                input.btn.uppercase.m-vlight-top-breather.sec-btn.mid-font-size(type='submit' name='submit' value='upload cv / resume')
+      // if there are new jobs
+      .jobs.m-mid-bottom-breather
+        .light-bx-shadow
+          .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+            p.headfont.uppercase.no-margin recent jobs on talents and skills 
+          .p-light-bottom-breather.p-mid-side-breather
+            ul.no-list-style.no-left-padding.capitalize
+              each job in currentJobs
+                li
+                  a(href=`/candidate/jobs/${job.id}`)  #{job.title}
+            // pagination buttons
+      // end .new jobs
+      .blog.m-mid-top-breather
+        .light-bx-shadow
+          .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+            p.headfont.uppercase.no-margin profile settings
+          .p-light-bottom-breather.p-mid-side-breather
+            .row
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Email
+                  p.small-font-size #{user.email}
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Phone Number
+                  p.small-font-size #{user.phone}
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Date of Birth
+                  p.small-font-size
+                    | 19/03/1202
+            .row.m-light-top-breather
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Gender
+                  p.small-font-size #{user.gender}
+              .col-sm-4
+                div
+                  p.mid-font-size.capitalize.no-margin.txt-bold Location
+                  p.small-font-size
+                    | #{user.location}
+            .clearfix.m-mid-top-breather.sm-container
+              a.btn.sec-btn.capitalize.form-control(href='/candidate/profile') update your profile
+      // end .featured-jobs
+    

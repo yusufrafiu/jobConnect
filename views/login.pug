@@ -1,0 +1,27 @@
+extends layout/main-template
+include mixins/_flash-messages
+
+block content
+  // login form
+  .inner-top.login
+    .sm-container.margin-auto.m-mid-breather.p-heavy-breather.p-heavy-side-breather
+      form.p-heavy-side-breather.m-mid-breather.p-mid-breather.white-bg(method='post' action='/login')
+        h2.text-center Login
+        .sm-container.m-mid-top-breather
+          +flashMessages()
+          .form-group
+            label(for='email') Email Address
+            input.form-control(type='text' name='email' placeholder='Enter Your Email Address')
+          .form-group
+            label(for='email') Password
+            input.form-control(type='password' name='password' placeholder='Enter Your Password')
+          input.btn.capitalize.main-btn.form-control(type='submit' name='submit' value='login')
+          div
+            .pull-left
+              p.capitalize.m-light-top-breather
+                a.brandtxt-color(href='') forgot your password?
+            .pull-right
+              p.lead.headfont.capitalize.m-light-top-breather
+                a.brandtxt-color(href='/login/social') Login with social media
+          .clearfix
+

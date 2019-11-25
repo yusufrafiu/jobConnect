@@ -1,0 +1,36 @@
+extends layout/dashboard-template
+block variables
+  - const account = user.account, current = 'dashboard'
+
+include mixins/_employer-sidebar
+
+block content
+  .row
+    // sidebar
+    +employerSidebar(user)
+      // mainbar
+    .jobs.col-sm-8
+            .light-bx-shadow.m-mid-bottom-breather
+              .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+                p.headfont.uppercase.no-margin job description
+              .p-light-bottom-breather.p-mid-side-breather
+                // job details
+                .row.m-vlight-bottom-breather
+                  .col-sm-3
+                    p.mid-font-size.capitalize.no-margin.txt-bold  job title:
+                  .col-sm-9
+                    p.mid-font-size.capitalize.no-margin #{job.title}
+                .row.m-vlight-bottom-breather
+                  .col-sm-3
+                    p.mid-font-size.capitalize.no-margin.txt-bold  deadline:
+                  .col-sm-9
+                    p.mid-font-size.capitalize.no-margin #{job.status()}
+                .row.m-vlight-bottom-breather
+                  .col-sm-3
+                    p.mid-font-size.capitalize.no-margin.txt-bold  no. of applicants
+                  .col-sm-9
+                    p.mid-font-size.no-margin #{job.candidates.length}
+                // edit and delete btns
+                .small-font-size.m-vlight-bottom-breather.m-mid-top-breather
+                  a.btn.sec-btn(href=`edit/${job.id}`) Edit Job
+                  a.btn.del-btn(href=`delete/${job.id}`) Delete Job

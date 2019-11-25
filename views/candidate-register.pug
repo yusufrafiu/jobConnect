@@ -1,0 +1,25 @@
+extends layout/main-template
+include mixins/_flash-messages
+
+block content
+  .inner-top.register
+    .sm-container.margin-auto.m-mid-breather.p-mid-breather.p-heavy-side-breather
+      form.p-heavy-side-breather.m-mid-breather.p-mid-breather.white-bg(action='/auth/register', method='post')
+        h2.text-center I&apos;m a Candidate
+        p.text-center Get headhunted by leading employers
+        .sm-container.m-mid-top-breather
+          +flashMessages()
+
+          input(type='hidden', name='account', value='candidate')
+          .form-group
+            input.form-control(type='text', name='firstname', placeholder='Enter your first Name', value=(data && data.firstname))
+          .form-group
+            input.form-control(type='text', name='lastname', placeholder='Enter your Last Name', value='')
+          .form-group
+            input.form-control(type='email', name='email', placeholder='Enter Your Email', value=(data && data.email))
+          .form-group
+            input.form-control(type='text', name='phone', placeholder='Phone Number', value='')
+          .form-group
+            input.form-control(type='password', name='password', placeholder='Password', value='')
+          .form-group
+            input.btn.main-btn.form-control(name='submit', type='submit', value='Register as a Candidate')

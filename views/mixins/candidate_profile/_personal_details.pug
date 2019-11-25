@@ -1,0 +1,56 @@
+mixin personal_details(candidate)
+
+  div
+    .light-bx-shadow
+      .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+        p.headfont.uppercase.no-margin personal details
+      .p-light-bottom-breather.p-mid-side-breather
+        form#pd-form.sm(action='/candidate/profile/update/personal_details', method='post')
+          p.capitalize.small-font-size.txt-bold
+            | fill in the details
+          .row
+            // first column
+            .col-sm-6
+              // input: EMAIL
+              .form-group
+                label.txt-bold.small-font-size.capitalize email
+                input.form-control(type='text', value=`${candidate.email}`, name='email', placeholder='your email')
+              // input: PHONE
+              .form-group
+                label.txt-bold.small-font-size.capitalize phone
+                input.form-control(type='tel', name='phone', value=`${candidate.phone}`, placeholder='your phone number')
+              // input: LOCATION
+              .form-group
+                label.txt-bold.small-font-size.capitalize
+                  | Choose your location
+                select#location.form-control(name='location')
+                  option(value='') Lagos
+              // input: DOB
+              .form-group
+                label.txt-bold.small-font-size.capitalize Date of Birth
+                input.form-control(type="date", name="dob")
+              // input: GENDER
+              .form-group
+                label.txt-bold.small-font-size.capitalize Gender
+                select.form-control(name='gender')
+                  option(value='male', selected='') Male
+                  option(value='female') Female
+            // second column
+            .col-sm-6
+              // input: PERSONAL STATEMENT
+              .form-group
+                label.txt-bold.small-font-size.capitalize personal statement
+                textarea.form-control(name='personal_statement', rows='7')
+              // input: ADDRESS
+              .form-group
+                label.txt-bold.small-font-size.capitalize address
+                textarea.form-control(name='address', rows='7')
+          // input: SUBMIT BUTTON
+          .sm-container.m-vlight-breather
+            .row
+              .col-sm-8
+                input.form-control.btn.sec-btn.capitalize(type='submit', value='Confirm Changes', name='submit')
+              // input: CANCEL BUTTON
+              .col-sm-4
+                a.form-control.capitalize.btn.main-btn(href='/candidate/profile')
+                  | cancel

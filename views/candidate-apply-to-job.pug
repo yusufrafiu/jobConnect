@@ -1,0 +1,84 @@
+extends layout/dashboard-template
+block variables
+  - const account = user.account
+
+include mixins/_top-job-search
+
+
+block content
+  // main content
+  .inner-top.dashboard
+    .p-light-breather
+      //- +topJobSearch()
+      .container
+        .row
+          // user details
+          .col-sm-9.white-bg.m-heavy-side-breather.p-light-breather
+            // flash messages
+            // flash errors
+            div
+              h2.headfont.txt-bold.headline-font-size.text-center.small-line-height.capitalize
+                | Application for
+                i.secbrandtxt-color
+                  |  #{job.title}
+                |  at
+                |               #{job.author.companyName}
+            form(method='post' action='' enctype='multipart/form-data')
+              input(type='hidden' name='MAX_FILE_SIZE' value='100000')
+              .m-mid-breather
+                .form-group.m-light-bottom-breather
+                  .p-vlight-breather.gray-bg.p-mid-side-breather
+                    p.secheadfont.uppercase.no-margin resume / cv
+                  .p-mid-side-breather.small-font-size.m-light-top-breather
+                    if(user.cvPath === undefined)
+                      p.no-margin.txt-bold You haven&apos;t uploaded a resume to your account
+                      p Upload from your computer now.
+                      input(type='file' name='cv')
+                    else
+                      p.no-margin.txt-bold You&apos;ve already uploaded a resume to your account
+                      p Need to upload a new one for this application? Select from your computer below.
+                      input(type='file' name='update-cv')
+                .form-group.m-light-bottom-breather
+                  .p-vlight-breather.gray-bg.p-mid-side-breather
+                    p.secheadfont.uppercase.no-margin letter of motivation
+                  .p-mid-side-breather.small-font-size.m-light-top-breather
+                    p.no-margin Why are you the best candidate for the job?
+                  textarea.ckeditor.form-control(name='editor' id='')
+                // submit form
+                .sm-container.m-mid-top-breather
+                  input.form-control.capitalize.btn.sec-btn(type='submit' name='submit' value='apply now')
+          // job summary
+          .sidebar.col-sm-3
+            .p-vlight-breather.sec-bg.p-mid-side-breather
+              p.headfont.uppercase.no-margin.text-center job summary
+            .p-mid-side-breather.p-light-breather.white-bg.small-font-size
+              // company name
+              .capitalize
+                p.txt-bold.no-margin company
+                p #{job.author.companyName}
+                  
+              // job field
+              .capitalize
+                p.txt-bold.no-margin field
+                p #{job.field}
+              // job type
+              .capitalize
+                p.txt-bold.no-margin job type
+                p #{job.type}
+              // location
+              .capitalize
+                p.txt-bold.no-margin location
+                p #{job.location}
+              // job experience
+              .capitalize
+                p.txt-bold.no-margin experience
+                p #{job.experience} years
+              // job qualification
+              .capitalize
+                p.txt-bold.no-margin minimum qualification
+                p #{job.qualification}
+              // job deadline
+              .capitalize
+                p.txt-bold.no-margin deadline
+                p
+                  | 21/08/2019

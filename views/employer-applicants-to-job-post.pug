@@ -1,0 +1,54 @@
+extends layout/dashboard-template
+include mixins/_employer-sidebar
+
+block content
+  .row
+    // sidebar
+    +employerSidebar()
+    // end .sidebar
+    // mainbar
+    .jobs.col-sm-8
+            .light-bx-shadow.m-mid-bottom-breather
+              .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+                p.headfont.uppercase.no-margin applicant summary
+              .p-light-bottom-breather.p-mid-side-breather
+                // flash messages and errors
+                // job details
+                .row.m-vlight-bottom-breather
+                  .col-sm-3
+                    img.img-responsive(src='/images/candidate-placeholder.jpg')
+                  .col-sm-9
+                    // applicant name
+                    .row
+                      .col-sm-5
+                        p.mid-font-size.capitalize.no-margin.txt-bold Name of Applicant:
+                      .col-sm-7
+                        p.mid-font-size.no-margin Yusuf rafiu
+                    // email
+                    .row
+                      .col-sm-5
+                        p.mid-font-size.capitalize.no-margin.txt-bold Email:
+                      .col-sm-7
+                        p.mid-font-size.no-margin yusuf_rafiu@yahoo.com
+                    // phone
+                    .row
+                      .col-sm-5
+                        p.mid-font-size.capitalize.no-margin.txt-bold Phone No.:
+                      .col-sm-7
+                        p.mid-font-size.no-margin 07037555894
+                    // personal statement
+                    .row
+                      .col-sm-5
+                        p.mid-font-size.capitalize.no-margin.txt-bold Personal statement.:
+                      .col-sm-7
+                        p.mid-font-size.no-margin this is a placeholder
+                .m-vlight-bottom-breather.m-mid-top-breather
+                  a.btn.sec-btn.form-control(href='') Download Candidate&apos;s CV
+                  // <a class="btn gray-bg capitalize maintxt-color form-control">Candidate haven't uploaded a CV yet</a>
+                .m-mid-bottom-breather
+                  a(href='')
+                    | &lt;&lt; Go Back
+                  // end .featured-jobs
+                // end .mainbar
+            // end main content
+

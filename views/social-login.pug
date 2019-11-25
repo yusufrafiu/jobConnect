@@ -1,0 +1,23 @@
+extends layout/main-template
+
+block content
+
+  // login form
+  .inner-top.login
+    .sm-container.margin-auto.m-mid-breather.p-heavy-breather.p-heavy-side-breather
+      form.p-heavy-side-breather.m-mid-breather.p-mid-breather.white-bg(method='post' action='')
+        .sm-container
+          // flash message
+          .rgstrtn-col
+            .ight-bx-shadow.p-light-breather.sm-br
+              p.text-center.capitalize.headfont Login with a social network
+              .m-light-breather.mid-container
+                // LinkedIN
+                .m-light-bottom-breather
+                  a.rgstrtn-social.lnkdin(href='') LinkedIN
+                // Facebook
+                .m-light-bottom-breather
+                  a.rgstrtn-social.fb(href='') Facebook
+                // Twitter
+                .m-light-bottom-breather
+                  a.rgstrtn-social.twt(href='') Twitter

@@ -1,0 +1,43 @@
+extends layout/main-template
+include mixins/_flash-messages
+
+
+block content
+  .inner-top.register
+    .sm-container.margin-auto.m-mid-breather.p-mid-breather.p-heavy-side-breather
+      form.p-heavy-side-breather.m-mid-breather.p-mid-breather.white-bg(action='/auth/register', method='POST')
+        h2.text-center I&apos;m an Employer
+        p.text-center Get instant access to great candidates
+        .sm-container.m-mid-top-breather
+          +flashMessages()
+          input(type='hidden', name='account', value='employer')
+          .form-group
+            input.form-control(type='email', name='email', placeholder='Company Email Address', value='', required)
+          .form-group
+            input.form-control(type='text', name='company_name', placeholder='Company Name', value=(data && data.company), required)
+          .form-group
+            select#jobField.form-control(name='job_field', required)
+              option.capitalize Please select your industry
+              each field in globalData.jobFields
+                option.capitalize(value=`${field}`) #{field}
+              option.capitalize Others : Please specify
+          // if user selects "Others: Please Specify", this input pops up
+          #hiddenJobField.form-group.hide-el
+            input.form-control(type='text', name='job_field_hidden', value='', placeholder='Please, enter your Industry here')
+          .form-group
+            input.form-control(type='text', name='phone', value='', placeholder='Phone Number', required)
+          .form-group
+            input.form-control(type='password', name='password', placeholder='Password', value='', required)
+          .form-group
+            input.btn.main-btn.form-control(name='submit', type='submit', value='Register as an Employer')
+  script.
+    const jobField = document.getElementById("jobField");
+    const hiddenJobField = document.getElementById("hiddenJobField");
+    function selectChangeHandler(e) {
+    if (e.target.value == "Others : Please specify") {
+    hiddenJobField.classList.remove("hide-el");
+    } else {
+    hiddenJobField.classList.add("hide-el");
+    }
+    }
+    jobField.onchange = selectChangeHandler;

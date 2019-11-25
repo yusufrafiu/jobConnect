@@ -1,0 +1,35 @@
+extends layout/dashboard-template
+
+block variables
+  - const account = user.account
+
+include mixins/_candidate-sidebar
+
+block content
+  .row
+    // sidebar
+    +candidateSidebar(user)
+    // mainbar
+    .col-sm-8.mainbar
+            // upload cv
+            .light-bx-shadow
+              .p-vlight-breather.sec-bg.p-mid-side-breather.m-vlight-bottom-breather
+                p.headfont.uppercase.no-margin upload your cv 
+              .p-light-bottom-breather.p-mid-side-breather
+                // flash message
+                // cv form
+                form(method='post' action='' enctype='multipart/form-data')
+                  .m-light-bottom-breather
+                    ul.no-list-style.no-left-padding
+                      li
+                        | The file size must not be more than
+                        span.txt-bold 500KB
+                      li
+                        | File format must be any of these:
+                        span.txt-bold .pdf, .docx, .doc 
+                  input(type='hidden' name='MAX_FILE_SIZE' value='500000')
+                  .form-group
+                    input(type='file' name='upload' style='padding-left: 0;')
+                  input.btn.uppercase.m-vlight-top-breather.sec-btn.mid-font-size(type='submit' name='submit' value='upload cv / resume')
+            // end upload cv
+          

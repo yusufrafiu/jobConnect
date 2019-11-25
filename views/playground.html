@@ -1,0 +1,782 @@
+<div class="inner-top my-profile">
+  <div class=" p-heavy-breather">
+    <div class="container">
+      <div class="row">
+        <!-- sidebar -->
+        <div class="sidebar col-sm-4">
+          <!-- +candidateSidebar(candidate) -->
+        </div>
+
+        <!-- mainbar -->
+        <div class="col-sm-8 mainbar">
+          <!-- personal details -->
+          <div class="">
+            <div class="light-bx-shadow">
+              <div
+                class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather"
+              >
+                <p class="headfont uppercase no-margin">personal details</p>
+              </div>
+
+              <div class="p-light-bottom-breather p-mid-side-breather">
+                <form action="" method="post" id="pd-form" class="sm">
+                  <input type="hidden" value="pd" name="update_type" />
+                  <p class="capitalize small-font-size txt-bold">
+                    fill in the details
+                  </p>
+                  <div class="row">
+                    <!-- // first column -->
+                    <div class="col-sm-6">
+                      <!-- // input: EMAIL -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"
+                          >email</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="{$candidate->email}"
+                          name="email"
+                          placeholder="your email"
+                        />
+                      </div>
+
+                      <!-- // input: PHONE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"
+                          >phone</label
+                        >
+                        <input
+                          type="tel"
+                          class="form-control"
+                          name="phone"
+                          value="{$candidate->phone}"
+                          placeholder="your phone number"
+                        />
+                      </div>
+
+                      <!-- // input: LOCATION -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"
+                          >Choose your location
+                        </label>
+                        <select
+                          class="form-control"
+                          id="location"
+                          name="location"
+                        >
+                          <option value="">Lagos</option>
+                        </select>
+                      </div>
+
+                      <!-- // input: DOB -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"
+                          >Date of Birth</label
+                        >
+                        <div class="row">
+                          <!-- // day -->
+                          <div class="col-sm-4">
+                            <select
+                              name="dob_d"
+                              class="form-control"
+                              id="dob_d"
+                            >
+                              <option>DD</option>
+                              <option value="" selected>01</option>
+                            </select>
+                          </div>
+
+                          <!-- // month -->
+                          <div class="col-sm-4">
+                            <select
+                              name="dob_m"
+                              class="form-control"
+                              id="dob_m"
+                            >
+                              <option>MM</option>
+                              <option value="" selected>02</option>
+                            </select>
+                          </div>
+
+                          <!-- // year -->
+                          <div class="col-sm-4">
+                            <select
+                              name="dob_y"
+                              class="form-control"
+                              id="dob_y"
+                            >
+                              <option>YYYY</option>
+                              <option value="" selected>2019</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- // input: GENDER -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"
+                          >Gender</label
+                        >
+                        <select name="gender" class="form-control">
+                          <option value="M" selected>Male</option>
+                          <option value="F">Female</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- // second column -->
+                    <div class="col-sm-6">
+                      <!-- // input: PERSONAL STATEMENT -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"
+                          >personal statement</label
+                        >
+                        <textarea
+                          class="form-control"
+                          name="personal_statement"
+                          rows="7"
+                        >
+                        </textarea>
+                      </div>
+
+                      <!-- // input: ADDRESS -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"
+                          >address</label
+                        >
+                        <textarea
+                          class="form-control"
+                          name="address"
+                          rows="7"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- // input: SUBMIT BUTTON -->
+                  <div class="sm-container m-vlight-breather">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <input
+                          type="submit"
+                          value="Confirm Changes"
+                          name="submit"
+                          class="form-control btn sec-btn
+                          capitalize"
+                        />
+                      </div>
+
+                      <!-- // input: CANCEL BUTTON -->
+                      <div class="col-sm-4">
+                        <a
+                          href="/candidate/profile"
+                          class="form-control capitalize btn main-btn"
+                        >
+                          cancel
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end personal details -->
+
+          <!-- career summary-->
+          <div class="">
+            <div class="light-bx-shadow">
+              <div
+                class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather"
+              >
+                <p class="headfont uppercase no-margin">career summary</p>
+              </div>
+
+              <div
+                class="p-light-bottom-breather p-mid-side-breather"
+                id="di-pd"
+              >
+                <form action="" method="post" class="sm">
+                  <input type="hidden" value="cs" name="update_type">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">desired job title</label>
+                        <input type="text" class="form-control" value="" name="job_title" placeholder="enter your desired job title">
+                      </div>
+                
+                      <!-- //input: JOB FIELD -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">job field</label>
+                        <select name="job_field" class="form-control">
+                          <option value="">choose your field</option>
+                          <option value="">accountancy</option>
+                        </select>
+                      </div>
+                
+                      <!-- // input: JOB TYPE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">job type</label>
+                        <select name="job_type" class="form-control capitalize">
+                          <option value=""></option>
+                        </select>
+                      </div>
+                    </div>
+                
+                    <div class="col-sm-6 m-light-bottom-breather">
+                
+                      <!-- // input: PREFERRED SALARY -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">preferred salary</label>
+                        <select name="salary_range" class="form-control capitalize">
+                          <option value="" selected>&#x20A6; 100,000 - &#x20A6;200,000</option>
+                        </select>
+                      </div>
+                
+                      <!-- // input: LOCATION -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">desired job location</label>
+                        <select name="location" id="" class="form-control">
+                          <option>desired job location</option>
+                          <option value=" " selected>Lagos</option>
+                        </select>
+                      </div>
+                    </div>
+                
+                    <div class="sm-container m-vlight-breather">
+                
+                      <!-- // input: SUBMIT & CANCEL BTNS -->
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <input type="submit" value="Confirm Changes" name="submit" class="form-control btn sec-btn
+                            capitalize"></div>
+                        <div class="col-sm-4">
+                          <a href="/candidate/profile" class="form-control capitalize btn main-btn">cancel</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end career summary -->
+
+          <!-- education -->
+          <div class="">
+            <div class="light-bx-shadow">
+              <div
+                class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather"
+              >
+                <p class="headfont uppercase no-margin">education</p>
+              </div>
+
+              <div class="p-light-bottom-breather p-mid-side-breather">
+
+                <!--  add new entry -->
+
+                <!-- update entry -->
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                  <input type="hidden" value="edu" name="update_type">
+                  <div class="row">
+                    <p class="uppercase txt-bold text-center">Entry: <span class="secbrandtxt-color">1</span></p>
+                
+                    <!-- // first column -->
+                    <div class="col-sm-6">
+                
+                      <!-- // input: COURSE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">course</label>
+                        <input type="text" class="form-control" value="" name="course" placeholder="enter your course title">
+                      </div>
+                
+                      <!-- // input: DEGREE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">Degree</label>
+                        <select class="form-control" name="degree">
+                          <option value=""></option>
+                        </select>
+                      </div>
+                
+                      <!-- // input: SCHOOL NAME -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">school</label>
+                        <input type="text" class="form-control" value="" name="school" placeholder="enter your school">
+                      </div>
+                    </div>
+                
+                    <!-- // 2nd column -->
+                    <div class="col-sm-6">
+                
+                      <!-- // input: SCHOOL LOCATION -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"> location</label>
+                        <input type="text" class="form-control" value="" name="location" placeholder="example: Nigeria">
+                      </div>
+                
+                      <!-- // input: GRADE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">grade</label>
+                        <input type="text" class="form-control" value="" name="grade" placeholder="example: 2nd Class Upper(2.1)">
+                      </div>
+                
+                      <!-- // input: YEAR -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">year</label>
+                        <select name="" class="form-control">
+                          <option value="" selected>2017</option>
+                          <option value="">2018</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- // SUBMIT & CANCEL BTNS -->
+                  <div class="m-vlight-breather">
+                    <div class="row">
+                
+                      <!-- // input: SUBMIT BTN -->
+                      <div class="col-sm-8">
+                        <input type="submit" value="Update entry" name="submit" class="form-control btn sec-btn
+                          capitalize"></div>
+                
+                      <!-- // input: CANCEL BTN -->
+                      <div class="col-sm-4">
+                        <a href="" class="form-control capitalize btn main-btn">delete entry</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <p>You don't have any educational records. Click on the button below to add one</p>
+                
+                <hr>
+                <div class="m-light-breather">
+                  <a href="" class="form-control btn main-btn capitalize">+ add a new entry</a>
+                </div>
+                
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                  <input type="hidden" value="edu" name="update_type">
+                  <input type="hidden" value="add" name="action">
+                  <div class="row">
+                
+                    <!-- // 1st column -->
+                    <div class="col-sm-6">
+                
+                      <!-- // input: COURSE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">course</label>
+                        <input type="text" class="form-control" value="" name="course" placeholder="enter the course title">
+                      </div>
+                
+                      <!-- // input: DEGREE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">degree</label>
+                        <select class="form-control" name="degree">
+                          <option value="">BSc</option>
+                        </select>
+                      </div>
+                
+                
+                      <!-- // input: SCHOOL -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">school</label>
+                        <input type="text" class="form-control" value=" " name="school" placeholder="enter the school">
+                      </div>
+                    </div>
+                
+                    <!-- // 2nd column -->
+                    <div class="col-sm-6">
+                
+                      <!-- // input: LOCATION -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize"> location</label>
+                        <input type="text" class="form-control" value=" " name="location" placeholder="example: Nigeria"></div>
+                
+                      <!-- // input: GRADE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">grade</label>
+                        <input type="text" class="form-control" value=" " name="grade" placeholder="example: 2nd Class Upper(2.1)">
+                      </div>
+                
+                      <!-- // input: YEAR -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">year</label>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- // inputs: SUBMIT & CANCEL BUTTONS -->
+                  <div class="m-vlight-breather">
+                    <div class="row">
+                
+                      <!-- // input: SUBMIT BTN -->
+                      <div class="col-sm-8">
+                        <input type="submit" value="Add entry" name="submit" class="form-control btn sec-btn
+                          capitalize"></div>
+                
+                      <!-- // input: CANCEL BTN -->
+                      <div class="col-sm-4">
+                        <a href="/candidate/profile" class=" form-control capitalize btn main-btn">cancel</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end education -->
+
+          <!-- skills -->
+          <?php break; case "skills" : ?>
+
+          <div class="">
+            <div class="light-bx-shadow">
+              <div
+                class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather"
+              >
+                <p class="headfont uppercase no-margin">Professional skills</p>
+              </div>
+
+              <div class="p-light-bottom-breather p-mid-side-breather">
+
+                <!--  add new entry -->
+
+                <!-- update entry -->
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                
+                  <!-- // input: HIDDEN TYPE FIELD -->
+                  <input type="hidden" name="update_type" value="sk">
+                
+                  <p class="uppercase txt-bold text-center">Entry:
+                    <span class="secbrandtxt-color"> 1</span>
+                  </p>
+                
+                  <!-- // input: SKILL NAME -->
+                  <div class="form-group">
+                    <label>Skill: </label>
+                    <input class="form-control" type="text" name="skill_name" value="" placeholder="Enter a skill name">
+                
+                    <!-- // UPDATE AND DELETE BTNS -->
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                
+                      <!-- // input: UPDATE -->
+                      <div class="form-group">
+                        <input type="submit" value="Update entry" name="submit" class="form-control btn sec-btn
+                          capitalize">
+                      </div>
+                    </div>
+                
+                    <!-- // input: DELETE -->
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <a href="" class="form-control btn main-btn capitalize">delete entry</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                
+                <hr>
+                <div class="m-light-breather">
+                  <a href="?type=skills&action=add" class="form-control btn main-btn capitalize">+ add a new entry</a>
+                </div>
+                
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                
+                  <!-- // input: HIDDEN TYPE and ACTION FIELD -->
+                  <input type="hidden" name="update_type" value="sk">
+                  <input type="hidden" value="add" name="action">
+                
+                
+                  <p class="uppercase txt-bold text-center">Entry: <span class="secbrandtxt-color">1</span></p>
+                
+                  <!-- // input: SKILL NAME -->
+                  <div class="form-group">
+                    <label>Skill: </label>
+                    <input class="form-control" type="text" name="skill_name" value="" placeholder="Enter a skill name">
+                  </div>
+                
+                  <!-- // input: SUBMIT BTN -->
+                  <input type="submit" value="Add entry" name="submit" class="form-control btn sec-btn
+                    capitalize">
+                
+                </form>
+
+              </div>
+            </div>
+          </div>
+          <!-- end skills -->
+
+          <!-- professional memberships -->
+
+          <div class="">
+            <div class="light-bx-shadow">
+              <div
+                class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather"
+              >
+                <p class="headfont uppercase no-margin">
+                  professional memberships / certifications
+                </p>
+              </div>
+
+              <div class="p-light-bottom-breather p-mid-side-breather" id="">
+
+                <!--  add new entry -->
+
+                <!-- update entry -->
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                
+                  <!-- // input: HIDDEN TYPE FIELD -->
+                  <input type="hidden" name="update_type" value="mem">
+                
+                  <p class="uppercase txt-bold text-center">Entry: <span class="secbrandtxt-color">1</span></p>
+                
+                  <div class="row">
+                    <div class="col-sm-6">
+                
+                      <!-- // input: ORGANIZATION -->
+                      <div class="form-group">
+                        <label>Organization: </label>
+                        <input class="form-control" type="text" name="organization" value=""
+                          placeholder="Enter the organization of your membership">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                
+                      <!-- // input: YEAR -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">year</label>
+                        <input type="" value="1987">
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="m-vlight-breather">
+                
+                    <!-- // SUBMIT & CANCEL BTNS -->
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <input type="submit" value="Update entry" name="submit" class="form-control btn sec-btn
+                          capitalize"></div>
+                      <div class="col-sm-4">
+                        <a href="" class="form-control capitalize btn main-btn">delete entry</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                
+                <hr>
+                <div class="m-light-breather">
+                  <a href="" class="form-control btn main-btn capitalize">+ add a new entry</a></div>
+                
+                
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                
+                  <!-- // input: HIDDEN TYPE and ACTION FIELD -->
+                  <input type="hidden" name="update_type" value="mem">
+                  <input type="hidden" value="add" name="action">
+                
+                  <div class="row m-light-top-breather">
+                    <div class="col-sm-6">
+                
+                      <!-- // input: ORGANIZATION -->
+                      <div class="form-group">
+                        <label class="capitalize">Organization: </label>
+                        <input class="form-control" type="text" name="organization" value=""
+                          placeholder="Enter the organization of your membership">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                
+                      <!-- // input: YEAR -->
+                      <div class="form-group">
+                        <label class="capitalize">year</label>
+                        <input type="text" name="year" value="1981" id="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-vlight-breather">
+                
+                    <!-- // input: ADD ENTRY -->
+                    <input type="submit" value="add entry" name="submit" class="form-control btn sec-btn
+                      capitalize"></div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+          <!-- end professional memberships -->
+
+          <!-- employment history -->
+          <?php break; case "employment_history" : ?>
+          <div class="">
+            <div class="light-bx-shadow">
+              <div
+                class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather"
+              >
+                <p class="headfont uppercase no-margin">employment history</p>
+              </div>
+
+              <div class="p-light-bottom-breather p-mid-side-breather">
+
+                <!--  add new entry -->
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                
+                  <!-- // input: HIDDEN TYPE FIELD -->
+                  <input type="hidden" name="update_type" value="empl">
+                
+                  <!-- // entry number -->
+                  <p class="uppercase txt-bold text-center">Entry: <span class="secbrandtxt-color">1</span></p>
+                
+                  <!-- // 1st col -->
+                  <div class="row">
+                
+                    <!-- // input: JOB TITLE -->
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">Job title </label>
+                        <input class="form-control" type="text" name="job_title" value="" placeholder="Enter your job position"></div>
+                
+                      <!-- // input: EMPLOYER -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">employer </label>
+                        <input class="form-control" type="text" name="employer" value="" placeholder="Enter the name of your employer">
+                      </div>
+                
+                      <!-- // input: DURATION IN ORGANIZATION -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">duration in organization </label>
+                        <input class="form-control" type="text" name="time_span" value="" placeholder="Example: 2012 - 2014"></div>
+                
+                      <!-- // 2nd col -->
+                    </div>
+                    <div class="col-sm-6">
+                
+                      <!-- // input: RESPONSIBILITIES -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">responsibilities</label>
+                        <textarea name="responsibilities" class="form-control" rows="10"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-vlight-breather">
+                
+                    <!-- // SUBMIT & CANCEL BTNS -->
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <input type="submit" value="Update entry" name="submit" class="form-control btn sec-btn
+                          capitalize"></div>
+                      <div class="col-sm-4">
+                        <a href="" class="form-control capitalize btn main-btn">delete entry</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                
+                <hr>
+                <div class="m-light-breather">
+                  <a href="?type=employment_history&action=add" class="form-control btn main-btn capitalize">+ add a new entry</a></div>
+                
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                
+                  <!-- // input: HIDDEN TYPE and ACTION FIELD -->
+                  <input type="hidden" name="update_type" value="empl">
+                  <input type="hidden" value="add" name="action">
+                
+                  <!-- // 1st column starts -->
+                  <div class="row">
+                    <div class="col-sm-6">
+                
+                      <!-- // input: JOB TITLE -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">Job title </label>
+                        <input class="form-control" type="text" name="job_title" value=" " placeholder="Enter your job position"></div>
+                
+                      <!-- // input: EMPLOYER -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">employer </label>
+                        <input class="form-control" type="text" name="employer" value=" " placeholder="Enter the name of your employer">
+                      </div>
+                
+                      <!-- // input: DURATION -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">duration in organization </label>
+                        <input class="form-control" type="text" name="time_span" value=" " placeholder="Example: 2012 - 2014"></div>
+                
+                      <!-- // end: 1st column -->
+                    </div>
+                
+                    <!-- // 2nd column starts -->
+                    <div class="col-sm-6">
+                
+                      <!-- //input: JOB RESPONSIBILITIES -->
+                      <div class="form-group">
+                        <label class="txt-bold small-font-size capitalize">responsibilities</label>
+                        <textarea name="responsibilities" class="form-control" rows="10">
+                          "Describe your responsibilites in the organization 
+                        </textarea></div>
+                
+                      <!-- // end: 2nd column -->
+                    </div>
+                  </div>
+                
+                  <!-- // input: SUBMIT -->
+                  <div class="m-vlight-breather">
+                    <input type="submit" value="Update entry" name="submit" class="form-control btn sec-btn
+                      capitalize"></div>
+                
+                  <!-- // end: FORM -->
+                </form>
+
+                <!-- update entry -->
+
+              </div>
+            </div>
+          </div>
+          <!-- end employment history -->
+
+          <!-- interests -->
+          <!-- <?php break; case "interests" : ?> -->
+          <div class="">
+            <div class="light-bx-shadow">
+              <div
+                class="p-vlight-breather sec-bg p-mid-side-breather m-vlight-bottom-breather"
+              >
+                <p class="headfont uppercase no-margin">interests</p>
+              </div>
+
+              <div class="p-light-bottom-breather p-mid-side-breather">
+                <form method="post" action="" class="sm p-light-bottom-breather">
+                  <div class="form-group">
+                    <label class="txt-bold small-font-size capitalize">interests</label>
+                    <textarea name="responsibilities" class="form-control" rows="5"> </textarea></div>
+                  <div class="m-vlight-breather">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <input type="submit" value="Update entry" name="submit" class="form-control btn sec-btn
+                          capitalize">
+                      </div>
+                      <div class="col-sm-4">
+                        <a href="/candidate/profile" class="form-control capitalize btn main-btn">cancel</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end interests -->
+        </div>
+        <!-- end .mainbar -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end main content -->
+
+<script></script>
+
+<!-- footer -->
+

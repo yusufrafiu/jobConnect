@@ -1,0 +1,27 @@
+extends layout/dashboard-template
+block variables
+  - const account = user.account, current = 'post a job'
+
+include mixins/_employer-sidebar
+include mixins/_create-edit-job
+
+block cssLinks
+  link(rel="stylesheet", href="/stylesheets/bootstrap-datetimepicker.min.css")
+  link(href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css")
+
+
+block content
+  .row
+    // sidebar
+    +employerSidebar(user)
+    // mainbar
+    .col-sm-8.mainbar
+      +createEditJob(job)
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js")
+  script(src="/javascripts/bootstrap-datetimepicker.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js")
+  script(type="text/javascript").
+    const editor = new FroalaEditor('#description')
+
